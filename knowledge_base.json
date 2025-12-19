@@ -9,6 +9,42 @@
         "priority_level": "medium"
     },
     {
+        "category": "Password Reset",
+        "title": "Password Expired",
+        "description": "Account locked due to expired password",
+        "keywords": ["password expired", "account expired", "password expiry", "90 days", "change password"],
+        "solution": "Your password has expired. Follow these steps:\n1. Press Ctrl+Alt+Del and select 'Change Password'\n2. Enter your old password\n3. Create a new password meeting requirements\n4. Password must be different from last 5 passwords\n5. New password expires in 90 days\n\nIf you can't change it, visit the IT help desk.",
+        "auto_resolvable": true,
+        "priority_level": "medium"
+    },
+    {
+        "category": "Password Reset",
+        "title": "Multi-Factor Authentication Issues",
+        "description": "Problems with MFA codes, authentication apps, or security keys",
+        "keywords": ["mfa", "2fa", "two factor", "authentication code", "authenticator app", "security key", "verification code"],
+        "solution": "For MFA issues:\n1. Ensure your phone has network connectivity\n2. Check if time on your device is synchronized\n3. Try regenerating a new code\n4. Use backup codes if available\n5. If using SMS, wait 2-3 minutes for delivery\n6. For authenticator app issues, try removing and re-adding account\n\nIf you've lost your MFA device, contact IT immediately for account recovery.",
+        "auto_resolvable": false,
+        "priority_level": "high"
+    },
+    {
+        "category": "Password Reset",
+        "title": "Password Complexity Requirements",
+        "description": "Password doesn't meet security requirements",
+        "keywords": ["password requirements", "password policy", "complex password", "password rules", "password strength"],
+        "solution": "Password requirements:\n- Minimum 12 characters\n- At least 1 uppercase letter (A-Z)\n- At least 1 lowercase letter (a-z)\n- At least 1 number (0-9)\n- At least 1 special character (!@#$%^&*)\n- Cannot contain username or common words\n- Must be different from last 10 passwords\n\nExample: MyC0mpany@2025!",
+        "auto_resolvable": true,
+        "priority_level": "low"
+    },
+    {
+        "category": "Password Reset",
+        "title": "Account Lockout After Multiple Failed Attempts",
+        "description": "Account locked after too many incorrect password attempts",
+        "keywords": ["locked out", "too many attempts", "account disabled", "locked account", "failed login"],
+        "solution": "Your account is locked after multiple failed login attempts.\n\n1. Wait 30 minutes for automatic unlock\n2. OR call IT help desk at ext. 2222 for immediate unlock\n3. Once unlocked, use correct password\n4. If you forgot password, use self-service reset portal\n\nAccount will lock again after 5 failed attempts within 15 minutes.",
+        "auto_resolvable": false,
+        "priority_level": "medium"
+    },
+    {
         "category": "Network Connectivity",
         "title": "WiFi and Network Connection Issues",
         "description": "Problems with internet connectivity, WiFi, and network access",
@@ -88,5 +124,509 @@
         "solution": "For security and malware concerns:\n\n**IMMEDIATE ACTIONS:**\n1. If you suspect malware infection:\n   - Disconnect from network immediately (disable WiFi/unplug ethernet)\n   - Do NOT turn off your computer\n   - Contact IT support immediately at ext. 2222\n\n2. For suspicious emails:\n   - Do NOT click any links or download attachments\n   - Do NOT reply or forward\n   - Report via the 'Report Phishing' button in Outlook\n   - Delete the email\n\n3. For security alerts from antivirus:\n   - Follow the recommended action\n   - Run a full system scan\n   - Document the threat name\n\n**This issue requires immediate IT support escalation for:**\n- Malware infections\n- Data breach concerns\n- Ransomware alerts\n- Compromised accounts\n\nExpected response time: Immediate (within 15 minutes)",
         "auto_resolvable": false,
         "priority_level": "critical"
+    },
+    {
+        "category": "Mobile Device Issues",
+        "title": "Company Phone Not Receiving Emails",
+        "description": "Mobile device not syncing corporate email",
+        "keywords": ["mobile email", "phone email", "sync issue", "smartphone", "iphone email", "android email", "mobile sync"],
+        "solution": "To fix mobile email sync:\n1. Check mobile data or WiFi connection\n2. Go to email settings and verify account is active\n3. Remove and re-add the email account\n4. Ensure Exchange ActiveSync is enabled\n5. Check if device has sufficient storage\n6. Update email app to latest version\n7. Restart your mobile device\n8. Verify corporate policies allow mobile access\n\nFor iOS: Settings > Mail > Accounts\nFor Android: Settings > Accounts > Add Account",
+        "auto_resolvable": true,
+        "priority_level": "medium"
+    },
+    {
+        "category": "Browser Issues",
+        "title": "Browser Slow or Crashing",
+        "description": "Web browser performance issues or crashes",
+        "keywords": ["browser slow", "chrome crash", "firefox not working", "edge freezing", "browser error", "web browser"],
+        "solution": "To fix browser issues:\n1. Clear browser cache and cookies:\n   - Chrome: Settings > Privacy > Clear browsing data\n   - Firefox: Options > Privacy > Clear Data\n   - Edge: Settings > Privacy > Choose what to clear\n2. Disable unnecessary extensions/add-ons\n3. Update browser to latest version\n4. Check for conflicting antivirus/firewall\n5. Reset browser settings to default\n6. Try using browser in incognito/private mode\n7. Restart your computer\n8. If still crashing, try a different browser\n\nFor persistent issues, contact IT support.",
+        "auto_resolvable": true,
+        "priority_level": "low"
+    },
+    {
+        "category": "Shared Drive Issues",
+        "title": "Cannot Access Shared Network Drive",
+        "description": "Unable to connect to company shared drives",
+        "keywords": ["shared drive", "network drive", "mapped drive", "can't access drive", "drive not available", "file server"],
+        "solution": "To access shared drives:\n1. Verify you're connected to company network or VPN\n2. Try accessing via full path: \\\\servername\\sharename\n3. Check if drive mapping is correct:\n   - Windows: This PC > Map network drive\n4. Disconnect and reconnect the mapped drive\n5. Verify you have proper permissions (contact manager)\n6. Restart Windows Explorer (Ctrl+Shift+Esc > Explorer.exe > Restart)\n7. Check if server is online (ping server)\n8. Ensure your credentials are up to date\n\nIf drive is offline or permissions denied, contact IT support.",
+        "auto_resolvable": false,
+        "priority_level": "medium"
+    },
+    {
+        "category": "Video Conferencing",
+        "title": "Zoom/Teams Meeting Audio Video Issues",
+        "description": "Problems with camera, microphone in video calls",
+        "keywords": ["zoom", "teams", "video call", "camera not working", "microphone", "audio issues", "video conference", "webex"],
+        "solution": "For video conferencing issues:\n\n**Audio/Microphone:**\n1. Check if microphone is muted in app and system\n2. Select correct audio device in settings\n3. Test microphone in system settings\n4. Close other apps using microphone\n5. Grant microphone permissions to the app\n\n**Video/Camera:**\n1. Check if camera is covered or turned off\n2. Select correct camera in app settings\n3. Grant camera permissions to the app\n4. Close other apps using camera\n5. Update camera drivers\n\n**General:**\n- Restart the meeting application\n- Check internet connection speed\n- Use wired connection instead of WiFi\n- Update app to latest version\n- Try browser version if desktop app fails",
+        "auto_resolvable": true,
+        "priority_level": "high"
+    },
+    {
+        "category": "File Recovery",
+        "title": "Deleted Files Recovery",
+        "description": "Accidentally deleted important files or documents",
+        "keywords": ["deleted files", "recover files", "lost files", "restore files", "undelete", "file recovery", "recycle bin"],
+        "solution": "To recover deleted files:\n\n1. Check Recycle Bin/Trash:\n   - Windows: Desktop > Recycle Bin > Restore\n   - Mac: Trash > Right-click > Put Back\n\n2. For OneDrive/SharePoint files:\n   - Go to OneDrive > Recycle Bin\n   - Files kept for 93 days\n   - Select and click Restore\n\n3. For network drives:\n   - Right-click folder > Properties > Previous Versions\n   - Select version and restore\n\n4. For email deleted items:\n   - Outlook > Deleted Items > Recover Deleted Items\n   - Items kept for 30 days\n\n**If files not found:**\nContact IT support immediately - backup recovery may be possible within 30 days. Include:\n- File name and location\n- Approximate deletion date\n- File importance level",
+        "auto_resolvable": false,
+        "priority_level": "high"
+    },
+    {
+        "category": "Software Updates",
+        "title": "Windows Update Problems",
+        "description": "Issues with system updates or update failures",
+        "keywords": ["windows update", "update failed", "update error", "system update", "patch", "upgrade"],
+        "solution": "For Windows Update issues:\n\n1. Check for disk space (need 20GB free)\n2. Run Windows Update Troubleshooter:\n   - Settings > Update & Security > Troubleshoot\n3. Pause and resume updates\n4. Clear update cache:\n   - Stop Windows Update service\n   - Delete C:\\Windows\\SoftwareDistribution\n   - Restart service\n5. Download updates manually from Microsoft Catalog\n6. Check Windows Update logs for errors\n7. Ensure antivirus isn't blocking updates\n8. Restart computer and try again\n\nFor persistent update failures, contact IT support - may require manual intervention or system repair.",
+        "auto_resolvable": false,
+        "priority_level": "medium"
+    },
+    {
+        "category": "Laptop Battery",
+        "title": "Laptop Battery Draining Fast",
+        "description": "Battery life issues and power management",
+        "keywords": ["battery", "battery drain", "power", "charging", "laptop battery", "battery life", "not charging"],
+        "solution": "To improve battery life:\n\n1. Check battery health:\n   - Windows: powercfg /batteryreport\n   - Mac: Option+Click battery icon\n\n2. Optimize power settings:\n   - Use balanced or power saver mode\n   - Reduce screen brightness\n   - Turn off keyboard backlight\n\n3. Close unnecessary apps and background processes\n4. Disable Bluetooth and WiFi when not needed\n5. Update BIOS and power drivers\n6. Check for battery-draining malware\n7. Unplug external devices\n8. Check charging cable and port\n\n**If battery health below 40% or not charging:**\nContact IT support for battery replacement. Batteries typically last 2-3 years and may be eligible for replacement under warranty.",
+        "auto_resolvable": true,
+        "priority_level": "low"
+    },
+    {
+        "category": "Keyboard Mouse Issues",
+        "title": "Keyboard or Mouse Not Working",
+        "description": "Input device connectivity or functionality issues",
+        "keywords": ["keyboard", "mouse", "not working", "keyboard broken", "mouse not responding", "trackpad", "touchpad"],
+        "solution": "For keyboard/mouse issues:\n\n**Wired devices:**\n1. Check if cable is properly connected\n2. Try different USB port\n3. Check for physical damage\n4. Test device on another computer\n5. Update device drivers\n\n**Wireless devices:**\n1. Replace batteries\n2. Check if device is powered on\n3. Re-pair device via Bluetooth\n4. Check wireless receiver connection\n5. Update Bluetooth drivers\n6. Remove and re-add device\n\n**For laptop keyboard/trackpad:**\n1. Check if external keyboard disabled internal one\n2. Update touchpad drivers\n3. Check function key locks (Fn key)\n4. Clean keyboard/trackpad\n\nIf device is damaged, submit hardware replacement request.",
+        "auto_resolvable": true,
+        "priority_level": "medium"
+    },
+    {
+        "category": "Screen Display Issues",
+        "title": "Monitor Display Problems",
+        "description": "Screen resolution, multiple monitor, or display issues",
+        "keywords": ["monitor", "display", "screen resolution", "dual monitor", "external monitor", "screen flickering", "display settings"],
+        "solution": "For display issues:\n\n**Resolution problems:**\n1. Right-click desktop > Display settings\n2. Select correct resolution (usually recommended)\n3. Adjust scaling if text too small/large\n4. Update graphics drivers\n\n**External monitor not detected:**\n1. Check cable connections (HDMI/DisplayPort/VGA)\n2. Press Windows+P to select display mode\n3. Try different cable or port\n4. Restart computer with monitor connected\n5. Update display drivers\n\n**Flickering or artifacts:**\n1. Check cable connections\n2. Try different refresh rate\n3. Update graphics drivers\n4. Test with different cable\n5. Check for electromagnetic interference\n\n**For persistent display issues:**\nContact IT support - may be hardware defect requiring replacement.",
+        "auto_resolvable": true,
+        "priority_level": "medium"
+    },
+    {
+        "category": "Audio Issues",
+        "title": "No Sound from Computer Speakers",
+        "description": "Audio output problems or sound not working",
+        "keywords": ["no sound", "audio", "speakers", "headphones", "volume", "sound not working", "mute"],
+        "solution": "To fix audio issues:\n\n1. Check if volume is muted or too low:\n   - System tray > Volume icon\n   - Check both system and application volume\n\n2. Verify correct output device selected:\n   - Right-click volume icon > Sounds > Playback\n   - Set correct device as default\n\n3. Check physical connections:\n   - Speakers powered on and connected\n   - Headphone jack fully inserted\n   - Try different port\n\n4. Update audio drivers:\n   - Device Manager > Audio devices > Update\n\n5. Run audio troubleshooter:\n   - Settings > Update & Security > Troubleshoot\n\n6. Restart audio services:\n   - Services.msc > Windows Audio > Restart\n\n7. Check if audio enhancements causing issues (disable them)\n\nIf still no sound, hardware may be faulty - contact IT support.",
+        "auto_resolvable": true,
+        "priority_level": "low"
+    },
+    {
+        "category": "Software Licensing",
+        "title": "Software License Expired or Invalid",
+        "description": "Application licensing or activation issues",
+        "keywords": ["license", "activation", "expired license", "software key", "license error", "activation failed"],
+        "solution": "For software licensing issues:\n\n1. Verify license status in application:\n   - Usually found in Help > About or License Info\n\n2. Check if license is assigned to you:\n   - Contact your manager or IT admin\n   - Visit software portal for license status\n\n3. For Microsoft products:\n   - Sign in with company credentials\n   - Activation should be automatic\n\n4. For Adobe products:\n   - Sign in to Creative Cloud\n   - Verify subscription status\n\n5. Try reactivating:\n   - Deactivate current installation\n   - Reactivate with valid key\n\n**License renewals or new licenses:**\n- Submit request through software portal\n- Require manager approval\n- Processing time: 1-3 business days\n\nFor immediate license issues affecting work, contact IT support with:\n- Software name and version\n- License error message\n- Business justification for urgency",
+        "auto_resolvable": false,
+        "priority_level": "medium"
+    },
+    {
+        "category": "Slow Computer Performance",
+        "title": "Computer Running Very Slow",
+        "description": "System performance issues and slowness",
+        "keywords": ["slow computer", "computer slow", "freezing", "lagging", "performance", "running slow", "system slow"],
+        "solution": "To improve computer performance:\n\n1. Restart your computer (if not done in 7+ days)\n\n2. Check CPU and memory usage:\n   - Ctrl+Shift+Esc > Performance tab\n   - Identify resource-heavy programs\n   - Close unnecessary applications\n\n3. Free up disk space:\n   - Delete temporary files\n   - Empty Recycle Bin\n   - Move files to OneDrive/network drive\n   - Need at least 20% free space\n\n4. Disable startup programs:\n   - Task Manager > Startup tab\n   - Disable unnecessary items\n\n5. Run disk cleanup and optimize:\n   - Settings > Storage > Free up space now\n   - Defragment disk (HDD only)\n\n6. Update Windows and drivers\n\n7. Run antivirus scan\n\n8. Check for Windows updates installing in background\n\n**If still slow after these steps:**\nContact IT support - may need hardware upgrade (RAM/SSD) or system reimaging.",
+        "auto_resolvable": true,
+        "priority_level": "medium"
+    },
+    {
+        "category": "Cloud Storage",
+        "title": "OneDrive Sync Issues",
+        "description": "Problems with OneDrive file synchronization",
+        "keywords": ["onedrive", "sync", "cloud storage", "file sync", "onedrive not syncing", "sync error", "cloud sync"],
+        "solution": "For OneDrive sync issues:\n\n1. Check OneDrive status:\n   - Click OneDrive icon in system tray\n   - Look for sync status and errors\n\n2. Verify internet connection is stable\n\n3. Check OneDrive storage space:\n   - May be full (check quota)\n   - Move or delete old files\n\n4. Pause and resume sync:\n   - Right-click OneDrive icon\n   - Pause syncing > Resume\n\n5. Check file/folder names:\n   - No special characters: < > : \" / \\ | ? *\n   - File path not exceeding 400 characters\n\n6. Reset OneDrive:\n   - Press Win+R\n   - Type: %localappdata%\\Microsoft\\OneDrive\\onedrive.exe /reset\n\n7. Unlink and relink OneDrive account\n\n8. Check if Files On-Demand is enabled\n\n9. Ensure OneDrive app is up to date\n\nFor persistent sync errors, contact IT support with error details.",
+        "auto_resolvable": true,
+        "priority_level": "medium"
+    },
+    {
+        "category": "Calendar Issues",
+        "title": "Outlook Calendar Not Syncing",
+        "description": "Calendar synchronization or sharing issues",
+        "keywords": ["calendar", "outlook calendar", "calendar sync", "calendar sharing", "meeting", "appointments", "calendar not updating"],
+        "solution": "For calendar sync issues:\n\n1. Check internet connection\n\n2. Verify account is connected:\n   - File > Account Settings > Account Settings\n   - Ensure account shows Connected\n\n3. Force sync:\n   - Send/Receive tab > Update Folder\n   - Or press F9\n\n4. Check calendar permissions:\n   - Right-click calendar > Properties > Permissions\n\n5. For shared calendars:\n   - Remove and re-add shared calendar\n   - Verify owner hasn't changed permissions\n\n6. Clear Outlook cache:\n   - Close Outlook\n   - Delete .ost file from %localappdata%\\Microsoft\\Outlook\n   - Restart Outlook (will rebuild cache)\n\n7. Check mobile device sync settings\n\n8. Verify calendar is not in offline mode\n\n9. Update Outlook to latest version\n\n**For delegation issues:**\nContact IT support to verify Exchange permissions and delegation settings.",
+        "auto_resolvable": true,
+        "priority_level": "medium"
+    },
+    {
+        "category": "Webcam Issues",
+        "title": "Webcam Not Working in Meetings",
+        "description": "Camera not detected or not functioning",
+        "keywords": ["webcam", "camera", "video", "camera not working", "webcam not detected", "video not working", "cam"],
+        "solution": "To fix webcam issues:\n\n1. Check if camera is covered or disabled:\n   - Look for privacy shutter or tape\n   - Check hardware switch on laptop\n\n2. Verify camera permissions:\n   - Windows: Settings > Privacy > Camera\n   - Mac: System Preferences > Security > Camera\n   - Grant permission to specific apps\n\n3. Check if another app is using camera:\n   - Close all video applications\n   - Restart your computer\n\n4. Update camera drivers:\n   - Device Manager > Cameras > Update driver\n\n5. Test camera in Camera app (Windows) or Photo Booth (Mac)\n\n6. For external webcams:\n   - Try different USB port\n   - Check cable connections\n   - Test on another computer\n\n7. Reinstall camera drivers:\n   - Device Manager > Cameras > Uninstall\n   - Restart computer (auto-reinstall)\n\n**If camera still not working:**\nContact IT support - may be hardware failure requiring replacement.",
+        "auto_resolvable": true,
+        "priority_level": "high"
+    },
+    {
+        "category": "Backup and Recovery",
+        "title": "Data Backup Request",
+        "description": "Request for data backup or restore from backup",
+        "keywords": ["backup", "restore", "data backup", "file backup", "backup restore", "recover data", "backup request"],
+        "solution": "For data backup and recovery:\n\n**Automatic backups:**\n- User profiles backed up nightly\n- OneDrive files backed up in real-time\n- Network drives backed up daily\n- Retention: 30 days\n\n**To restore from backup:**\n1. Identify what needs to be restored:\n   - File name and location\n   - Approximate date of last good version\n   - Why restoration is needed\n\n2. Submit restore request:\n   - IT Portal > Backup Services > Restore Request\n   - Or contact IT support directly\n\n3. Restoration timeline:\n   - Recent files (within 7 days): 2-4 hours\n   - Older files (8-30 days): 24-48 hours\n\n**For special backup needs:**\n- Large project backup: contact IT in advance\n- Off-site backup: available for critical data\n- Long-term archival: requires manager approval\n\n**This request requires IT support assistance:**\nProvide detailed information for faster processing.",
+        "auto_resolvable": false,
+        "priority_level": "high"
+    },
+    {
+        "category": "Skype for Business",
+        "title": "Skype for Business Connection Issues",
+        "description": "Cannot sign in or connect to Skype",
+        "keywords": ["skype", "skype for business", "lync", "instant messaging", "im", "skype not connecting", "skype login"],
+        "solution": "For Skype for Business issues:\n\n1. Check internet/network connection\n\n2. Verify sign-in credentials:\n   - Use full email address\n   - Same password as email/domain\n\n3. Sign out and sign back in:\n   - File > Sign Out\n   - Clear 'Delete my sign-in info'\n   - Sign in again\n\n4. Check server connectivity:\n   - Skype should auto-detect server\n   - Verify company firewall not blocking\n\n5. Clear Skype cache:\n   - File > Options > Personal\n   - Delete Skype for Business data\n\n6. Update Skype for Business:\n   - File > Help > Check for Updates\n\n7. Restart Skype and computer\n\n8. Check if VPN is required for remote access\n\n9. Verify account is active (not disabled)\n\n**For persistent connection issues:**\nContact IT support - may require server-side configuration or port opening.",
+        "auto_resolvable": true,
+        "priority_level": "medium"
+    },
+    {
+        "category": "Database Access",
+        "title": "Cannot Connect to Database",
+        "description": "Database connection errors or access issues",
+        "keywords": ["database", "sql", "database connection", "db error", "database access", "connection timeout", "sql server"],
+        "solution": "For database connection issues:\n\n1. Verify you have database access:\n   - Check with database admin or manager\n   - Confirm username and permissions\n\n2. Check connection string:\n   - Server name correct\n   - Database name correct\n   - Port number if required\n\n3. Test network connectivity:\n   - Can you ping database server?\n   - Are you on VPN if remote?\n\n4. Verify credentials:\n   - Windows Authentication vs SQL Authentication\n   - Password not expired\n\n5. Check firewall rules:\n   - Local firewall allowing connection\n   - Network firewall rules configured\n\n6. For connection timeouts:\n   - Database may be busy\n   - Network latency issues\n   - Query may need optimization\n\n**Database access requires:**\n- Manager approval\n- Security clearance\n- Proper training/certification\n\n**This request requires IT/DBA support:**\nProvide: database name, server, error message, business justification.",
+        "auto_resolvable": false,
+        "priority_level": "high"
+    },
+    {
+        "category": "Remote Desktop",
+        "title": "Remote Desktop Connection Problems",
+        "description": "Cannot connect to remote computer or server",
+        "keywords": ["remote desktop", "rdp", "remote connection", "remote access", "terminal server", "can't remote in"],
+        "solution": "For Remote Desktop issues:\n\n1. Verify you have VPN connection (if remote)\n\n2. Check target computer name/IP:\n   - Correct hostname or IP address\n   - Computer is powered on\n\n3. Verify Remote Desktop is enabled on target:\n   - System Properties > Remote\n   - Allow Remote Desktop connections\n\n4. Check your permissions:\n   - Must be in Remote Desktop Users group\n   - Or have admin rights\n\n5. Firewall check:\n   - Port 3389 must be open\n   - Windows Firewall allowing RDP\n\n6. Test network connectivity:\n   - Ping target computer\n   - Check if on same network\n\n7. Clear saved credentials:\n   - Control Panel > Credential Manager\n   - Remove old RDP credentials\n\n8. Try alternative methods:\n   - Use computer name instead of IP\n   - Use FQDN: computername.domain.com\n\n**For persistent RDP issues:**\nContact IT support with: target computer name, error message, connection method.",
+        "auto_resolvable": false,
+        "priority_level": "high"
+    },
+    {
+        "category": "WiFi Connectivity",
+        "title": "WiFi Connected but No Internet",
+        "description": "Connected to WiFi but cannot access internet",
+        "keywords": ["wifi no internet", "connected but no internet", "wifi connected", "no internet access", "limited connectivity"],
+        "solution": "For WiFi connected but no internet:\n\n1. Restart your device\n\n2. Forget and reconnect to WiFi:\n   - Windows: Settings > Network > Manage known networks\n   - Mac: System Preferences > Network > Advanced\n\n3. Restart router/access point:\n   - Unplug for 30 seconds\n   - Plug back in and wait 2 minutes\n\n4. Check if other devices have internet:\n   - If yes, issue is with your device\n   - If no, issue is with network\n\n5. Reset network settings:\n   - Windows: Settings > Network & Internet > Status > Network reset\n   - Mac: Remove WiFi connection and re-add\n\n6. Flush DNS cache:\n   - Windows: ipconfig /flushdns\n   - Mac: sudo killall -HUP mDNSResponder\n\n7. Check proxy settings:\n   - Ensure no proxy enabled (if not required)\n\n8. Update network adapter drivers\n\n9. Try using Ethernet cable to isolate WiFi issue\n\n**If internet still not working:**\nContact IT support - may be ISP issue or network infrastructure problem.",
+        "auto_resolvable": true,
+        "priority_level": "high"
+    },
+    {
+        "category": "USB Device Issues",
+        "title": "USB Device Not Recognized",
+        "description": "External USB device not detected or working",
+        "keywords": ["usb", "usb device", "external drive", "flash drive", "usb not working", "device not recognized", "usb error"],
+        "solution": "For USB device issues:\n\n1. Try different USB port:\n   - Use USB 3.0 port (usually blue)\n   - Avoid USB hubs if possible\n\n2. Check device on another computer:\n   - Determines if device or computer issue\n\n3. Update USB drivers:\n   - Device Manager > Universal Serial Bus controllers\n   - Update each USB Root Hub\n\n4. Restart computer with device connected\n\n5. Check device in Disk Management:\n   - Windows: diskmgmt.msc\n   - Device may need drive letter assigned\n\n6. Scan for hardware changes:\n   - Device Manager > Action > Scan for hardware changes\n\n7. Disable USB selective suspend:\n   - Power Options > Change plan settings > USB settings\n\n8. Check for physical damage:\n   - Inspect port and cable\n   - Clean port with compressed air\n\n**For company-issued encrypted USB:**\nContact IT support if encryption software not loading.",
+        "auto_resolvable": true,
+        "priority_level": "low"
+    },
+    {
+        "category": "PDF Issues",
+        "title": "Cannot Open or Edit PDF Files",
+        "description": "Problems with PDF viewing or editing",
+        "keywords": ["pdf", "acrobat", "pdf not opening", "pdf error", "pdf reader", "cannot open pdf", "adobe"],
+        "solution": "For PDF issues:\n\n1. Ensure PDF reader installed:\n   - Adobe Acrobat Reader (free)\n   - Available in company software portal\n\n2. Update PDF reader to latest version\n\n3. Set default PDF application:\n   - Right-click PDF > Open with > Choose another app\n   - Select Adobe Acrobat Reader\n   - Check 'Always use this app'\n\n4. For corrupted PDFs:\n   - Try opening in browser\n   - Try different PDF reader\n   - Request new copy from sender\n\n5. For password-protected PDFs:\n   - Contact document owner for password\n   - Verify password is correct (case-sensitive)\n\n6. For editing PDFs:\n   - Requires Adobe Acrobat Pro (paid)\n   - Submit software request if needed\n   - Alternative: use online PDF editors\n\n7. Clear Adobe cache:\n   - Edit > Preferences > Documents > Clear\n\n8. Repair Adobe installation:\n   - Control Panel > Programs > Adobe > Repair\n\n**For specialized PDF needs:**\nContact IT support for software recommendations or licenses.",
+        "auto_resolvable": true,
+        "priority_level": "low"
+    },
+    {
+        "category": "Disk Space",
+        "title": "Low Disk Space Warning",
+        "description": "Computer storage running out of space",
+        "keywords": ["disk space", "storage full", "low space", "hard drive full", "out of storage", "disk full", "c drive full"],
+        "solution": "To free up disk space:\n\n1. Run Disk Cleanup:\n   - Right-click C: drive > Properties > Disk Cleanup\n   - Select all options including 'Clean up system files'\n   - Can free 5-10 GB\n\n2. Move files to OneDrive:\n   - Documents, Pictures, Videos\n   - Enables Files On-Demand to save space\n\n3. Delete temporary files:\n   - Settings > System > Storage > Temporary files\n   - Clear downloads folder\n\n4. Uninstall unused programs:\n   - Settings > Apps > Apps & features\n   - Remove old or unused software\n\n5. Empty Recycle Bin\n\n6. Clear browser cache and downloads\n\n7. Move large files to network drive\n\n8. Compress old files:\n   - Right-click files > Properties > Advanced\n   - Enable compression\n\n9. Check for Windows.old folder (after upgrades)\n\n**If disk consistently full:**\nContact IT support for:\n- Storage upgrade (SSD expansion)\n- Profile cleanup assistance\n- Archive solution for old files\n\nNeed 20% free space for optimal performance.",
+        "auto_resolvable": true,
+        "priority_level": "medium"
+    },
+    {
+        "category": "SharePoint Issues",
+        "title": "SharePoint Site Access Problems",
+        "description": "Cannot access SharePoint sites or documents",
+        "keywords": ["sharepoint", "sharepoint access", "cannot access site", "sharepoint error", "document library", "sharepoint permissions"],
+        "solution": "For SharePoint access issues:\n\n1. Verify you have permissions:\n   - Contact site owner or admin\n   - May need to be added to site members\n\n2. Check URL is correct:\n   - Verify site address\n   - Check for typos\n   - Use full URL including https://\n\n3. Try accessing from different browser\n\n4. Clear browser cache and cookies\n\n5. Check if you're signed in:\n   - Look for your name in top-right\n   - Sign out and sign back in\n\n6. For sync issues:\n   - Use 'Sync' button to sync library\n   - Check OneDrive sync status\n\n7. For document errors:\n   - Try opening in browser instead of desktop app\n   - Check if file is checked out by someone else\n   - Verify document library not exceeding limits\n\n8. Ensure browser is supported:\n   - Edge, Chrome, Firefox (latest versions)\n\n**For permission requests:**\nContact site owner or submit access request through IT portal.\n\n**For site creation:**\nContact IT support - requires approval.",
+        "auto_resolvable": false,
+        "priority_level": "medium"
+    },
+    {
+        "category": "Antivirus Issues",
+        "title": "Antivirus Blocking Legitimate Software",
+        "description": "False positive virus detections or blocked applications",
+        "keywords": ["antivirus", "virus block", "false positive", "blocked application", "quarantine", "antivirus error", "defender"],
+        "solution": "For antivirus blocking legitimate software:\n\n1. Verify the file is truly safe:\n   - Only proceed if from trusted source\n   - Check digital signature\n   - Scan with alternate scanner\n\n2. Add exception in antivirus:\n   - Windows Defender: Settings > Virus & Threat Protection\n   - Go to 'Exclusions'\n   - Add file, folder, or process\n\n3. Restore quarantined files:\n   - Antivirus > Protection History\n   - Select item > Restore\n\n4. Temporarily disable antivirus:\n   - ONLY for trusted installations\n   - Remember to re-enable after\n\n5. Check corporate antivirus policy:\n   - Some exclusions may be blocked by policy\n   - Requires IT admin assistance\n\n6. Report false positive to IT:\n   - May need policy update\n   - Helps improve detection accuracy\n\n**IMPORTANT:**\nNever disable antivirus for unknown files. Contact IT support if:\n- Required software consistently blocked\n- Need permanent exception\n- Unsure if file is safe",
+        "auto_resolvable": false,
+        "priority_level": "medium"
+    },
+    {
+        "category": "Time Zone Settings",
+        "title": "Wrong Time or Time Zone on Computer",
+        "description": "System clock showing incorrect time",
+        "keywords": ["time wrong", "clock", "time zone", "date time", "system time", "wrong time", "time sync"],
+        "solution": "To fix time/timezone issues:\n\n1. Verify time zone setting:\n   - Windows: Settings > Time & Language > Date & time\n   - Mac: System Preferences > Date & Time\n   - Select correct time zone\n\n2. Enable automatic time sync:\n   - Windows: Turn on 'Set time automatically'\n   - Mac: Check 'Set date and time automatically'\n\n3. Manually sync time:\n   - Windows: Settings > Date & time > Sync now\n   - Or run: w32tm /resync\n\n4. Check internet connection:\n   - Time sync requires network access\n   - Connect to VPN if remote\n\n5. For domain computers:\n   - Time syncs from domain controller\n   - Check network connectivity to DC\n\n6. Update time server:\n   - May need to specify correct time server\n   - IT can configure via group policy\n\n7. Check CMOS battery:\n   - If time resets on restart, battery may be dead\n\n**Impact of wrong time:**\n- Email timestamps incorrect\n- Meeting invites show wrong time\n- Security certificates may fail\n- File timestamps incorrect\n\nContact IT if time won't stay synced.",
+        "auto_resolvable": true,
+        "priority_level": "low"
+    },
+    {
+        "category": "Projection Display",
+        "title": "Cannot Project to External Screen or Projector",
+        "description": "Issues with presentations or screen mirroring",
+        "keywords": ["projector", "project", "screen share", "external display", "presentation", "hdmi", "screen mirroring"],
+        "solution": "For projection issues:\n\n1. Check physical connections:\n   - HDMI/VGA/DisplayPort cable secure\n   - Try different cable if available\n   - Check adapters/dongles working\n\n2. Select display mode (Windows+P):\n   - Duplicate - same on both screens\n   - Extend - separate displays\n   - Second screen only - for presentations\n\n3. For wireless projection:\n   - Ensure both devices on same network\n   - Enable Miracast/AirPlay\n   - Check projector supports wireless\n\n4. Update graphics drivers\n\n5. Restart computer with projector connected\n\n6. Try different input source on projector/screen:\n   - Use projector remote to switch inputs\n   - Try HDMI 1, HDMI 2, VGA, etc.\n\n7. Check resolution compatibility:\n   - Reduce resolution if not displaying\n   - Try 1920x1080 or 1280x720\n\n8. For conference room systems:\n   - Follow room-specific instructions\n   - Contact IT if touch panel not responding\n\n**For presentation emergencies:**\nCall IT support immediately - may send technician to room.",
+        "auto_resolvable": true,
+        "priority_level": "high"
+    },
+    {
+        "category": "Group Policy Issues",
+        "title": "Group Policy Restrictions",
+        "description": "Unable to perform actions due to company policy",
+        "keywords": ["group policy", "policy restriction", "access denied", "administrator rights", "blocked by policy", "permission denied"],
+        "solution": "Group policy restrictions:\n\n**Common restrictions:**\n- Install/uninstall software\n- Change system settings\n- Access certain websites\n- Run specific applications\n- Modify security settings\n- Change network settings\n\n**These restrictions are intentional for security.**\n\n**If you need exception:**\n1. Verify legitimate business need\n2. Get manager approval\n3. Submit policy exception request:\n   - IT Portal > Security > Policy Exception\n   - Provide detailed justification\n   - Include what you're trying to do\n\n4. Request reviewed by:\n   - IT Security team\n   - Department manager\n   - May require CISO approval\n\n5. Processing time: 3-5 business days\n\n**Temporary workarounds:**\n- Request IT admin assistance for one-time tasks\n- Use virtual machine if available\n- Submit request for specific software in catalog\n\n**This requires IT support:**\nPolicy changes need approval chain and implementation by IT.",
+        "auto_resolvable": false,
+        "priority_level": "low"
+    },
+    {
+        "category": "Bluetooth Issues",
+        "title": "Bluetooth Device Connection Problems",
+        "description": "Cannot connect Bluetooth devices or accessories",
+        "keywords": ["bluetooth", "wireless", "bluetooth not working", "pairing", "bluetooth device", "wireless headset", "bluetooth mouse"],
+        "solution": "For Bluetooth issues:\n\n1. Enable Bluetooth:\n   - Windows: Settings > Devices > Bluetooth\n   - Mac: System Preferences > Bluetooth\n   - Check if turned on\n\n2. Put device in pairing mode:\n   - Usually hold power/pair button 5-10 seconds\n   - Check device manual for specific steps\n   - Look for flashing LED indicator\n\n3. Remove and re-pair device:\n   - Remove device from Bluetooth settings\n   - Restart both devices\n   - Pair fresh\n\n4. Check device battery:\n   - Low battery can cause connection issues\n   - Charge or replace batteries\n\n5. Update Bluetooth drivers:\n   - Device Manager > Bluetooth > Update\n\n6. Restart Bluetooth service:\n   - Services.msc > Bluetooth Support Service > Restart\n\n7. Check for interference:\n   - Move away from WiFi routers, microwaves\n   - Reduce distance between devices\n\n8. Update Windows/macOS to latest version\n\n9. For corporate devices:\n   - Some Bluetooth features may be disabled by policy\n   - Contact IT for exceptions\n\n**If persistent issues:**\nContact IT support - may be hardware problem with Bluetooth adapter.",
+        "auto_resolvable": true,
+        "priority_level": "low"
+    },
+    {
+        "category": "Application Crashes",
+        "title": "Application Keeps Crashing or Freezing",
+        "description": "Specific application repeatedly crashes or becomes unresponsive",
+        "keywords": ["app crash", "application crash", "program crash", "app freezing", "application not responding", "software crash"],
+        "solution": "For application crashes:\n\n1. Save work and restart the application\n\n2. Check for application updates:\n   - Help > Check for Updates\n   - Or download latest from company portal\n\n3. Run application as administrator:\n   - Right-click > Run as administrator\n\n4. Clear application cache/temp files:\n   - Location varies by application\n   - Check application settings\n\n5. Disable add-ons/plugins:\n   - Start in safe mode if available\n   - Disable extensions one by one\n\n6. Check system requirements:\n   - Verify your computer meets minimum specs\n   - May need more RAM or CPU\n\n7. Repair or reinstall application:\n   - Control Panel > Programs > Repair\n   - Or uninstall and reinstall\n\n8. Check error logs:\n   - Event Viewer (Windows)\n   - Console (Mac)\n   - Note error codes/messages\n\n9. Check for conflicting software:\n   - Antivirus may be interfering\n   - Other applications using same resources\n\n10. Ensure Windows is up to date\n\n**If crashes persist:**\nContact IT support with:\n- Application name and version\n- Error messages/codes\n- Steps to reproduce crash\n- When issue started",
+        "auto_resolvable": false,
+        "priority_level": "medium"
+    },
+    {
+        "category": "Email Quota",
+        "title": "Mailbox Full - Cannot Send or Receive Email",
+        "description": "Email storage limit exceeded",
+        "keywords": ["mailbox full", "email quota", "mailbox quota", "storage limit", "email full", "cannot send email", "mailbox size"],
+        "solution": "For full mailbox:\n\n**Current mailbox status:**\n- Check quota: File > Info > Mailbox Settings\n- Standard quota: 50 GB\n- Warning at 45 GB\n- Send/receive blocked at 50 GB\n\n**To free up space:**\n\n1. Empty Deleted Items folder:\n   - Right-click Deleted Items > Empty Folder\n\n2. Delete old emails:\n   - Sort by size: View > Add Columns > Size\n   - Delete large/unnecessary emails\n\n3. Remove large attachments:\n   - Search for size:>5mb\n   - Save attachments to OneDrive/network\n   - Delete from email\n\n4. Archive old emails:\n   - File > Info > Cleanup Tools > Archive\n   - Move emails older than 1 year\n\n5. Compact mailbox:\n   - File > Account Settings > Data Files\n   - Select mailbox > Settings > Compact Now\n\n6. Clean up conversations:\n   - File > Info > Cleanup Tools > Clean Up Conversations\n\n**Request quota increase:**\n- Requires manager approval\n- Submit via IT portal\n- Max increase: 100 GB\n- Processing: 1-2 days\n\n**Best practices:**\n- Keep mailbox under 40 GB\n- Archive regularly\n- Store files in OneDrive, not email",
+        "auto_resolvable": true,
+        "priority_level": "high"
+    },
+    {
+        "category": "Certificate Errors",
+        "title": "Website Security Certificate Errors",
+        "description": "Browser showing SSL/TLS certificate warnings",
+        "keywords": ["certificate error", "ssl error", "security certificate", "connection not secure", "certificate invalid", "https error"],
+        "solution": "For certificate errors:\n\n**If error on company internal site:**\n1. Update company certificates:\n   - Contact IT to push latest certificates\n   - May need to install root CA\n\n2. Check system date/time:\n   - Wrong date causes certificate validation failures\n   - Sync time: Settings > Time & Language > Sync now\n\n3. Clear browser cache and cookies\n\n4. Update browser to latest version\n\n5. Try different browser to isolate issue\n\n**If error on external site:**\n1. Check if site is legitimate:\n   - Verify URL spelling carefully\n   - Could be phishing attempt\n\n2. Proceed only if you trust the site:\n   - Understand the risk\n   - Certificate may be expired\n\n3. Report suspicious sites to IT\n\n**For persistent certificate errors on company sites:**\nContact IT support - may need to:\n- Install corporate certificates\n- Update certificate store\n- Configure proxy settings\n- Check network security appliances\n\n**SECURITY WARNING:**\nDo not ignore certificate errors on banking, email, or sensitive sites!",
+        "auto_resolvable": false,
+        "priority_level": "medium"
+    },
+    {
+        "category": "Language Settings",
+        "title": "Keyboard Language or Input Method Issues",
+        "description": "Wrong keyboard layout or language input problems",
+        "keywords": ["keyboard language", "input method", "wrong keyboard", "keyboard layout", "language settings", "typing wrong characters"],
+        "solution": "For keyboard language issues:\n\n1. Check current keyboard layout:\n   - Look at language bar in system tray (EN, FR, etc.)\n   - Click to see available keyboards\n\n2. Switch keyboard layout:\n   - Windows: Left Alt + Shift\n   - Or Windows + Space\n   - Mac: Command + Space\n\n3. Add/remove keyboard layouts:\n   - Windows: Settings > Time & Language > Language\n   - Click language > Options > Add a keyboard\n   - Mac: System Preferences > Keyboard > Input Sources\n\n4. Set preferred keyboard as default:\n   - In Language settings\n   - Move preferred to top of list\n\n5. Disable unwanted keyboards:\n   - Remove layouts you don't use\n   - Prevents accidental switching\n\n6. Check if sticky/filter keys enabled:\n   - Can cause unexpected behavior\n   - Settings > Ease of Access > Keyboard\n\n7. For specific key not working:\n   - Check if key is stuck or damaged\n   - Try external keyboard\n   - Update keyboard drivers\n\n**For non-English keyboards:**\nContact IT if you need specific language keyboard installed.",
+        "auto_resolvable": true,
+        "priority_level": "low"
+    },
+    {
+        "category": "Dock Station Issues",
+        "title": "Laptop Docking Station Not Working",
+        "description": "Problems with docking station connectivity or functionality",
+        "keywords": ["docking station", "dock", "usb dock", "thunderbolt dock", "dock not working", "external monitor dock"],
+        "solution": "For docking station issues:\n\n1. Check connections:\n   - Dock firmly connected to laptop\n   - Dock powered on (check LED)\n   - All peripherals properly plugged into dock\n\n2. Restart in correct order:\n   - Disconnect laptop from dock\n   - Restart laptop\n   - Reconnect to dock while laptop is on\n\n3. Update dock firmware:\n   - Check manufacturer website\n   - Use manufacturer's update tool\n   - May need IT admin rights\n\n4. Update laptop drivers:\n   - USB/Thunderbolt controller drivers\n   - Display drivers\n   - Ethernet drivers\n\n5. Check dock compatibility:\n   - Verify dock supports your laptop model\n   - Check USB-C/Thunderbolt version match\n\n6. Try different USB-C/Thunderbolt port:\n   - If laptop has multiple ports\n   - Some ports may have limited functionality\n\n7. Test peripherals individually:\n   - Connect directly to laptop\n   - Isolate if issue is dock or device\n\n8. Check power delivery:\n   - Dock should charge laptop\n   - Use appropriate power adapter for dock\n\n**For corporate-issued docks:**\nContact IT support for:\n- Firmware updates requiring admin rights\n- Replacement if hardware faulty\n- Configuration assistance",
+        "auto_resolvable": false,
+        "priority_level": "medium"
+    },
+    {
+        "category": "Screen Sharing Issues",
+        "title": "Cannot Share Screen in Virtual Meetings",
+        "description": "Screen sharing not working in Zoom, Teams, or Webex",
+        "keywords": ["screen share", "share screen", "screen sharing", "cannot share", "screen share blocked", "presentation mode"],
+        "solution": "For screen sharing issues:\n\n1. Check application permissions:\n   - Mac: System Preferences > Security > Screen Recording\n   - Grant permission to Zoom/Teams/Webex\n   - Restart application after granting\n\n2. Close conflicting applications:\n   - Other screen recording software\n   - VPN client (if causing issues)\n   - Graphics-intensive applications\n\n3. Update meeting application:\n   - Always use latest version\n   - Check for updates before important meetings\n\n4. Try different share options:\n   - Share specific window vs entire screen\n   - Share application instead of desktop\n\n5. Restart meeting application\n\n6. Check if host has restricted sharing:\n   - Some meetings limit who can share\n   - Ask host to enable sharing for you\n\n7. Disable hardware acceleration:\n   - In app settings > Video\n   - Can resolve graphics conflicts\n\n8. Update graphics drivers\n\n9. For \"Share Screen\" button greyed out:\n   - May need meeting host permission\n   - Check internet connection stability\n\n10. Try browser version if desktop app fails\n\n**Before important presentations:**\nTest screen sharing in advance with colleague!",
+        "auto_resolvable": true,
+        "priority_level": "high"
+    },
+    {
+        "category": "Print Spooler Issues",
+        "title": "Print Jobs Stuck in Queue",
+        "description": "Documents stuck in print queue, won't print or delete",
+        "keywords": ["print queue", "print spooler", "stuck print job", "print job won't delete", "printer queue", "spooler error"],
+        "solution": "For stuck print jobs:\n\n1. Cancel stuck jobs:\n   - Open printer queue\n   - Right-click jobs > Cancel\n   - Or Document > Cancel\n\n2. If jobs won't cancel, restart print spooler:\n   - Press Windows+R\n   - Type: services.msc\n   - Find 'Print Spooler'\n   - Right-click > Restart\n\n3. Alternatively via Command Prompt (as admin):\n   ```\n   net stop spooler\n   net start spooler\n   ```\n\n4. Manually clear print queue:\n   - Stop Print Spooler service\n   - Navigate to: C:\\Windows\\System32\\spool\\PRINTERS\n   - Delete all files in folder\n   - Start Print Spooler service\n\n5. Check printer status:\n   - Printer online and ready\n   - No paper jam or errors on printer\n   - Try printing test page\n\n6. Update printer drivers:\n   - Device Manager > Printers\n   - Update driver\n\n7. Remove and re-add printer\n\n8. For network printers:\n   - Check network connection to printer\n   - Verify print server is online\n\n**If spooler keeps stopping:**\nContact IT support - may indicate driver or system issues.",
+        "auto_resolvable": true,
+        "priority_level": "medium"
+    },
+    {
+        "category": "Citrix Issues",
+        "title": "Citrix Virtual Desktop Problems",
+        "description": "Cannot connect to or use Citrix workspace",
+        "keywords": ["citrix", "virtual desktop", "citrix receiver", "citrix workspace", "vdi", "remote app", "citrix not connecting"],
+        "solution": "For Citrix issues:\n\n1. Verify Citrix Workspace installed:\n   - Download from company portal if missing\n   - Update to latest version\n\n2. Check internet/VPN connection:\n   - Must be on VPN for remote access\n   - Test network connectivity\n\n3. Clear Citrix cache:\n   - Citrix Workspace > Advanced Preferences\n   - Reset Citrix Workspace\n   - Or manually delete cache files\n\n4. Verify login credentials:\n   - Same as domain credentials\n   - Check for password expiration\n   - Use full email if required\n\n5. Check Citrix server status:\n   - Contact IT if server maintenance ongoing\n   - Check company intranet for announcements\n\n6. For performance issues:\n   - Close unused applications in Citrix\n   - Reduce display resolution\n   - Disable printer/drive mapping if not needed\n\n7. For keyboard/mouse issues:\n   - Check if input is captured by local or remote\n   - Press Ctrl+F2 to release/capture input\n\n8. For clipboard issues:\n   - Verify clipboard redirection enabled\n   - May be blocked by security policy\n\n**Common errors:**\n- Cannot connect to server: Check network/VPN\n- SSL Error: Update Workspace and certificates\n- Session timeout: Reconnect and log back in\n\nContact IT support for persistent Citrix issues.",
+        "auto_resolvable": false,
+        "priority_level": "high"
+    },
+    {
+        "category": "Microphone Issues",
+        "title": "Microphone Not Working or Too Quiet",
+        "description": "Audio input problems during calls or recordings",
+        "keywords": ["microphone", "mic not working", "audio input", "mic too quiet", "microphone not detected", "sound input"],
+        "solution": "To fix microphone issues:\n\n1. Check microphone settings:\n   - Windows: Settings > System > Sound > Input\n   - Mac: System Preferences > Sound > Input\n   - Test microphone level while speaking\n\n2. Verify correct microphone selected:\n   - May have multiple input devices\n   - Select the one you're using\n\n3. Adjust input volume:\n   - Increase microphone volume/boost\n   - Speak test to see levels moving\n\n4. Check application permissions:\n   - Windows: Settings > Privacy > Microphone\n   - Mac: System Preferences > Security > Microphone\n   - Grant access to specific apps\n\n5. Check if muted:\n   - System mute button\n   - Application mute button\n   - Physical mute switch on headset\n\n6. Update audio drivers:\n   - Device Manager > Audio inputs > Update\n\n7. For external microphones:\n   - Check cable connections\n   - Try different USB port\n   - Test on another device\n\n8. Disable audio enhancements:\n   - Sound settings > Device properties\n   - Disable all enhancements\n\n9. Check for hardware issues:\n   - Test with different microphone\n   - Clean microphone port\n\nContact IT if microphone hardware is faulty.",
+        "auto_resolvable": true,
+        "priority_level": "high"
+    },
+    {
+        "category": "Excel Issues",
+        "title": "Excel File Corrupted or Won't Open",
+        "description": "Cannot open Excel spreadsheets or file corruption errors",
+        "keywords": ["excel", "excel file", "corrupted excel", "excel won't open", "excel error", "spreadsheet", "xlsx"],
+        "solution": "For Excel file issues:\n\n1. Try opening in Excel Safe Mode:\n   - Hold Ctrl while opening Excel\n   - Try opening file\n\n2. Use Open and Repair:\n   - Excel > File > Open\n   - Browse to file\n   - Click dropdown next to Open\n   - Select 'Open and Repair'\n\n3. Try opening on different computer\n\n4. Check file extension:\n   - Should be .xlsx or .xls\n   - If wrong, rename with correct extension\n\n5. Restore previous version:\n   - Right-click file > Properties > Previous Versions\n   - Or check OneDrive version history\n\n6. Disable Protected View:\n   - File > Options > Trust Center > Protected View\n   - Temporarily disable to open file\n\n7. Check if file is password protected:\n   - May need password from file creator\n\n8. Update Excel to latest version\n\n9. Import data into new workbook:\n   - Create new Excel file\n   - Data > Get Data > From File\n\n10. Use online Excel (Office 365):\n    - Upload to OneDrive\n    - Open in Excel Online\n\n**For important corrupted files:**\nContact IT support - may have data recovery tools or backup versions available.",
+        "auto_resolvable": false,
+        "priority_level": "high"
+    },
+    {
+        "category": "Spam Filtering",
+        "title": "Legitimate Emails Going to Spam/Junk",
+        "description": "Important emails being filtered as spam",
+        "keywords": ["spam", "junk email", "junk folder", "email filtering", "spam filter", "legitimate email spam", "missing emails"],
+        "solution": "To fix spam filtering:\n\n1. Check Junk Email folder regularly:\n   - Outlook > Junk Email folder\n   - Look for legitimate emails\n\n2. Mark email as Not Junk:\n   - Right-click email > Junk > Not Junk\n   - Check 'Always trust email from sender'\n\n3. Add sender to Safe Senders list:\n   - Home > Junk > Junk E-mail Options\n   - Safe Senders tab > Add\n   - Enter email address or domain\n\n4. Create Inbox rule:\n   - Right-click email > Rules > Always move messages from\n   - Ensures emails go to Inbox\n\n5. Check spam settings:\n   - File > Options > Junk Email\n   - Adjust protection level (No Automatic Filtering, Low, High)\n   - Consider lowering if too aggressive\n\n6. For domain-wide issues:\n   - Contact IT to whitelist domain\n   - May be blocked at email gateway\n\n7. Check blocked senders list:\n   - Ensure sender not accidentally blocked\n   - Remove from blocked list if needed\n\n8. Search for missing emails:\n   - May be in other folders\n   - Use search with sender name\n\n**For persistent issues:**\nContact IT support - may need email gateway configuration adjustment.",
+        "auto_resolvable": true,
+        "priority_level": "medium"
+    },
+    {
+        "category": "Network Speed",
+        "title": "Slow Internet or Network Speed",
+        "description": "Network performance issues and slow data transfer",
+        "keywords": ["slow internet", "slow network", "network slow", "slow speed", "bandwidth", "connection slow", "internet speed"],
+        "solution": "To improve network speed:\n\n1. Test actual speed:\n   - Use speedtest.net\n   - Compare to expected speed\n   - Test at different times\n\n2. Close bandwidth-heavy applications:\n   - Streaming video/music\n   - Large downloads/uploads\n   - Cloud sync services\n   - Video calls\n\n3. Check WiFi signal strength:\n   - Move closer to access point\n   - Avoid physical obstructions\n   - Switch to 5GHz band if available\n\n4. Use wired connection:\n   - Ethernet cable more stable than WiFi\n   - Test if speed improves\n\n5. Disconnect unused devices:\n   - Reduce number of devices on network\n   - IoT devices can consume bandwidth\n\n6. Clear browser cache\n\n7. Check for network congestion:\n   - More users = slower speed\n   - Peak hours may be slower\n\n8. Restart network equipment:\n   - Modem/router\n   - Network switches\n\n9. Update network adapter drivers\n\n10. Disable VPN temporarily:\n    - VPN can reduce speed\n    - Test without VPN\n\n11. Check for malware:\n    - Run antivirus scan\n    - Malware can consume bandwidth\n\n**If consistently slow:**\nContact IT support - may need:\n- Network infrastructure upgrade\n- ISP bandwidth increase\n- Quality of Service (QoS) configuration",
+        "auto_resolvable": false,
+        "priority_level": "medium"
+    },
+    {
+        "category": "Outlook Add-ins",
+        "title": "Outlook Add-ins Not Working or Causing Issues",
+        "description": "Problems with Outlook extensions and plugins",
+        "keywords": ["outlook add-in", "outlook plugin", "add-in error", "outlook extension", "com add-in", "outlook slow add-in"],
+        "solution": "For Outlook add-in issues:\n\n1. Start Outlook in Safe Mode:\n   - Hold Ctrl while starting Outlook\n   - Or run: outlook.exe /safe\n   - If works in safe mode, issue is add-in related\n\n2. Disable add-ins:\n   - File > Options > Add-ins\n   - Manage COM Add-ins > Go\n   - Uncheck problematic add-ins\n   - Restart Outlook\n\n3. Re-enable add-ins one by one:\n   - Identify which causes problem\n   - Keep only necessary add-ins\n\n4. Update add-ins:\n   - Check for updates in add-in settings\n   - Or download latest version\n\n5. Repair Office installation:\n   - May fix corrupted add-ins\n   - Control Panel > Programs > Office > Repair\n\n6. Check for conflicting add-ins:\n   - Some add-ins don't work together\n   - Try different combinations\n\n7. For corporate add-ins:\n   - Contact IT if required add-in not working\n   - May need reinstallation or configuration\n\n8. Clear Outlook cache:\n   - Close Outlook\n   - Delete .ost file\n   - Restart Outlook\n\n**Common problematic add-ins:**\n- Antivirus email scanners\n- PDF converters\n- CRM integrations\n\nContact IT if required business add-in causing issues.",
+        "auto_resolvable": true,
+        "priority_level": "low"
+    },
+    {
+        "category": "Boot Issues",
+        "title": "Computer Won't Start or Boot",
+        "description": "Startup problems and boot failures",
+        "keywords": ["won't boot", "won't start", "boot error", "startup problem", "computer won't turn on", "boot failure", "black screen"],
+        "solution": "For boot issues:\n\n**Initial checks:**\n1. Check power:\n   - Power cable connected\n   - Try different outlet\n   - Check power LED lights\n   - For laptops, try without battery (AC only)\n\n2. Check for display issues:\n   - Monitor turned on and connected\n   - Try different monitor/cable\n   - Listen for fan/disk sounds\n\n3. Remove external devices:\n   - USB drives, external drives\n   - Printers, docks\n   - Try booting with minimal hardware\n\n**If showing POST/BIOS:**\n1. Check boot order in BIOS:\n   - Enter BIOS (usually F2/Del at startup)\n   - Verify hard drive is first boot device\n\n2. Reset BIOS to defaults\n\n**If Windows doesn't load:**\n1. Try Safe Mode:\n   - Repeatedly tap F8 during boot\n   - Or hold Shift while restarting\n\n2. Use Windows Recovery:\n   - May boot to automatic repair\n   - Try Startup Repair option\n\n**Error messages:**\n- \"Boot device not found\" = Hard drive issue\n- \"Operating system not found\" = Boot files corrupted\n- BSOD = System crash, note error code\n\n**THIS REQUIRES IMMEDIATE IT SUPPORT:**\n- May be hardware failure\n- Data backup needed\n- Possible hard drive replacement\n- System rebuild may be required\n\nCall IT support immediately: ext. 2222",
+        "auto_resolvable": false,
+        "priority_level": "critical"
+    },
+    {
+        "category": "DNS Issues",
+        "title": "DNS Server Not Responding",
+        "description": "Cannot resolve domain names or DNS errors",
+        "keywords": ["dns", "dns error", "dns server", "server not found", "dns not responding", "name resolution", "domain not found"],
+        "solution": "For DNS issues:\n\n1. Flush DNS cache:\n   - Open Command Prompt as admin\n   - Run: ipconfig /flushdns\n   - Run: ipconfig /registerdns\n\n2. Restart DNS client service:\n   - services.msc\n   - Find \"DNS Client\"\n   - Right-click > Restart\n\n3. Try different DNS servers:\n   - Network adapter properties\n   - TCP/IPv4 > Properties\n   - Use these DNS servers:\n     Primary: 8.8.8.8 (Google)\n     Secondary: 1.1.1.1 (Cloudflare)\n   - Or use company DNS (ask IT)\n\n4. Release and renew IP:\n   - Command Prompt as admin:\n   - ipconfig /release\n   - ipconfig /renew\n\n5. Reset network adapter:\n   - Settings > Network > Network reset\n   - Will restart computer\n\n6. Check hosts file:\n   - C:\\Windows\\System32\\drivers\\etc\\hosts\n   - Ensure no incorrect entries\n   - (Requires admin rights)\n\n7. Disable IPv6 temporarily:\n   - Network adapter properties\n   - Uncheck Internet Protocol Version 6\n\n8. Check firewall:\n   - Ensure port 53 not blocked\n\n**For corporate networks:**\n- Must use company DNS servers\n- Contact IT for correct DNS settings\n- VPN may require specific DNS\n\nContact IT if DNS issues persist - may be network infrastructure problem.",
+        "auto_resolvable": false,
+        "priority_level": "high"
+    },
+    {
+        "category": "Signature Issues",
+        "title": "Email Signature Not Working",
+        "description": "Outlook signature missing or not inserting properly",
+        "keywords": ["email signature", "outlook signature", "signature not working", "signature missing", "auto signature", "email footer"],
+        "solution": "For email signature issues:\n\n1. Check signature settings:\n   - File > Options > Mail > Signatures\n   - Verify signature exists\n\n2. Set default signatures:\n   - Choose signature for New messages\n   - Choose signature for Replies/forwards\n   - Select correct email account\n\n3. Create or edit signature:\n   - File > Options > Mail > Signatures\n   - Click New or Edit\n   - Format with company template if available\n\n4. Check signature location:\n   - Signatures stored in:\n   - %appdata%\\Microsoft\\Signatures\n   - Verify files exist\n\n5. For images not showing:\n   - Insert image using Insert Picture\n   - Don't copy/paste from browser\n   - Keep images small (under 50KB)\n   - Save image in Signatures folder\n\n6. Format issues:\n   - Use HTML format (not plain text)\n   - Avoid fancy fonts/formatting\n   - Test in new email\n\n7. Signature missing in replies:\n   - Check 'Replies/forwards' dropdown\n   - May be set to \"(none)\"\n\n8. For multiple email accounts:\n   - Create separate signature per account\n   - Select account in signature settings\n\n9. Recreate signature if corrupted\n\n**For company-branded signatures:**\nContact IT for official template or auto-deployment.",
+        "auto_resolvable": true,
+        "priority_level": "low"
+    },
+    {
+        "category": "Zoom Issues",
+        "title": "Zoom Meeting Connection or Quality Issues",
+        "description": "Problems joining or during Zoom meetings",
+        "keywords": ["zoom", "zoom meeting", "zoom connection", "zoom quality", "zoom audio", "zoom video", "zoom error"],
+        "solution": "For Zoom issues:\n\n**Connection problems:**\n1. Check internet connection\n2. Close bandwidth-heavy apps\n3. Use wired connection instead of WiFi\n4. Restart Zoom application\n5. Update Zoom to latest version\n6. Check firewall not blocking Zoom\n7. Try joining via browser if desktop fails\n\n**Audio issues:**\n1. Click \"Join Audio\" button\n2. Select \"Computer Audio\"\n3. Check correct microphone/speakers selected\n4. Test audio in settings before meeting\n5. Grant microphone permissions\n6. Try switching between computer/phone audio\n\n**Video issues:**\n1. Click \"Start Video\" button\n2. Check camera permissions granted\n3. Select correct camera in video settings\n4. Check camera not used by other app\n5. Try \"Stop Video\" then \"Start Video\"\n6. Update camera drivers\n\n**Poor quality:**\n1. Turn off HD video to save bandwidth\n2. Disable virtual background\n3. Close other applications\n4. Ask others to turn off video if needed\n5. Switch to gallery view for less load\n\n**Screen sharing issues:**\n1. Grant screen recording permission (Mac)\n2. Try sharing specific window vs full screen\n3. Disable hardware acceleration\n4. Update graphics drivers\n\n**Error codes:**\n- Error 3113: Update Zoom client\n- Error 5003: Network firewall issue\n- Error 104101/104103: Connection blocked\n\nFor persistent issues, contact IT support with error codes.",
+        "auto_resolvable": true,
+        "priority_level": "high"
+    },
+    {
+        "category": "Teams Issues",
+        "title": "Microsoft Teams Not Working or Freezing",
+        "description": "Teams application performance or connectivity issues",
+        "keywords": ["teams", "microsoft teams", "teams not working", "teams freezing", "teams crash", "teams slow", "teams error"],
+        "solution": "For Microsoft Teams issues:\n\n**General troubleshooting:**\n1. Restart Teams:\n   - Right-click Teams icon in system tray\n   - Click Quit\n   - Restart Teams\n\n2. Clear Teams cache:\n   - Quit Teams completely\n   - Navigate to: %appdata%\\Microsoft\\Teams\n   - Delete folders: cache, blob_storage, databases, GPUcache, IndexedDB, Local Storage, tmp\n   - Restart Teams\n\n3. Update Teams:\n   - Teams auto-updates\n   - Check: Profile > Check for updates\n   - Or download latest from portal\n\n4. Check internet connection\n\n5. Disable hardware acceleration:\n   - Settings > General > Disable GPU hardware acceleration\n   - Restart Teams\n\n**Can't send/receive messages:**\n1. Check Teams service status: status.office.com\n2. Verify internet connection\n3. Sign out and sign back in\n4. Clear cache (steps above)\n\n**Audio/video issues:**\n1. Check device settings in Teams\n2. Test audio/video before call\n3. Grant microphone/camera permissions\n4. Close other apps using audio/video\n5. Update audio/video drivers\n\n**Notifications not working:**\n1. Check notification settings in Teams\n2. Verify Windows/Mac notifications enabled\n3. Check Do Not Disturb status\n4. Ensure Teams is running (not closed)\n\n**Files not uploading:**\n1. Check file size (limit varies)\n2. Verify SharePoint permissions\n3. Try uploading to OneDrive first\n4. Check internet connection\n\n**For persistent issues:**\nContact IT support or try Teams web version: teams.microsoft.com",
+        "auto_resolvable": true,
+        "priority_level": "high"
+    },
+    {
+        "category": "Two Monitor Setup",
+        "title": "Dual Monitor Display Issues",
+        "description": "Problems with second monitor or multiple display setup",
+        "keywords": ["dual monitor", "two monitors", "second monitor", "multiple displays", "extend display", "monitor not detected"],
+        "solution": "For dual monitor setup:\n\n1. Check physical connections:\n   - Both monitors connected and powered on\n   - Cables firmly connected (HDMI/DisplayPort/VGA)\n   - Try different cable if available\n\n2. Detect displays:\n   - Right-click desktop > Display settings\n   - Click \"Detect\" button\n   - Windows should find both monitors\n\n3. Configure display mode (Windows+P):\n   - PC screen only\n   - Duplicate (same on both)\n   - Extend (separate displays)\n   - Second screen only\n\n4. Arrange displays:\n   - Display settings > Identify\n   - Drag monitor icons to match physical layout\n   - Set which is primary display\n\n5. Match resolutions:\n   - Set appropriate resolution for each monitor\n   - Usually \"Recommended\" is best\n\n6. Check monitor input source:\n   - Use monitor buttons to select correct input\n   - HDMI 1, HDMI 2, DisplayPort, VGA, etc.\n\n7. Update graphics drivers:\n   - Device Manager > Display adapters\n   - Update all graphics drivers\n\n8. Check graphics card limitations:\n   - Verify GPU supports number of monitors\n   - Check if using correct ports\n\n9. Try one monitor at a time:\n   - Isolate which monitor/port has issue\n\n10. For docking stations:\n    - Update dock firmware\n    - Try connecting monitors directly to laptop\n\n**For alignment issues:**\n- Drag windows between screens to test\n- Adjust scale and layout per monitor\n- Set different wallpapers to identify screens\n\nContact IT if monitors not detected after all steps.",
+        "auto_resolvable": true,
+        "priority_level": "medium"
+    },
+    {
+        "category": "Startup Programs",
+        "title": "Too Many Programs Starting Automatically",
+        "description": "Slow startup due to too many startup applications",
+        "keywords": ["startup", "startup programs", "autostart", "boot slow", "programs startup", "slow startup", "auto launch"],
+        "solution": "To manage startup programs:\n\n1. Check startup programs:\n   - Ctrl+Shift+Esc (Task Manager)\n   - Go to Startup tab\n   - Shows all startup programs and impact\n\n2. Disable unnecessary programs:\n   - Right-click program > Disable\n   - Focus on \"High impact\" programs\n   - Keep only essential programs:\n     * Antivirus\n     * Cloud storage (if needed at startup)\n     * Company VPN (if required)\n\n3. Common programs to disable:\n   - Adobe Creative Cloud\n   - iTunes Helper\n   - Skype (if not needed immediately)\n   - Spotify, Slack (can start manually)\n   - Update checkers\n   - Game launchers\n\n4. Check startup folders:\n   - Win+R > shell:startup (current user)\n   - Win+R > shell:common startup (all users)\n   - Remove shortcuts you don't need\n\n5. Check Task Scheduler:\n   - Tasks may run at startup\n   - taskschd.msc\n   - Review and disable unnecessary tasks\n\n6. For programs that re-enable:\n   - Check program settings\n   - Look for \"Start with Windows\" option\n   - Uncheck it\n\n7. Registry (advanced):\n   - Win+R > msconfig > Startup\n   - For advanced users only\n\n**Best practices:**\n- Keep startup programs under 10\n- Disable what you can start manually\n- Prioritize by impact rating\n- Restart after changes to test\n\n**Impact on performance:**\n- Each startup program adds 3-30 seconds\n- Reduces available RAM\n- Slows overall system performance\n\nContact IT if unsure which programs are safe to disable.",
+        "auto_resolvable": true,
+        "priority_level": "low"
+    },
+    {
+        "category": "Copy Paste Issues",
+        "title": "Copy Paste Not Working",
+        "description": "Clipboard functionality problems",
+        "keywords": ["copy paste", "clipboard", "ctrl c ctrl v", "copy not working", "paste not working", "clipboard error"],
+        "solution": "For copy paste issues:\n\n1. Restart clipboard:\n   - Open Task Manager (Ctrl+Shift+Esc)\n   - Find \"rdpclip.exe\" process\n   - End task\n   - Run > rdpclip.exe (restarts it)\n\n2. Clear clipboard:\n   - Win+V to open clipboard history\n   - Click \"Clear all\"\n   - Or run: echo off | clip\n\n3. Enable clipboard history:\n   - Settings > System > Clipboard\n   - Turn on Clipboard history\n   - Use Win+V to access\n\n4. Check application permissions:\n   - Some apps block clipboard for security\n   - Try copying from different application\n\n5. Restart the application:\n   - Close program where copy/paste not working\n   - Reopen and try again\n\n6. Try keyboard vs right-click:\n   - Ctrl+C / Ctrl+V\n   - Right-click > Copy/Paste\n   - Try both methods\n\n7. Check for special characters:\n   - Some characters may not copy correctly\n   - Try copying plain text\n\n8. Restart computer:\n   - Sometimes simple restart fixes it\n\n9. For Remote Desktop:\n   - Enable clipboard sharing:\n   - RDP > Local Resources > Clipboard\n\n10. Check clipboard manager:\n    - If using third-party clipboard manager\n    - May conflict with Windows clipboard\n    - Try disabling temporarily\n\n**For persistent issues:**\n- May be caused by malware\n- Run antivirus scan\n- Contact IT if problem continues",
+        "auto_resolvable": true,
+        "priority_level": "low"
+    },
+    {
+        "category": "Font Issues",
+        "title": "Fonts Missing or Not Displaying Correctly",
+        "description": "Font rendering or missing fonts problems",
+        "keywords": ["font", "fonts missing", "font not working", "font error", "text display", "font install"],
+        "solution": "For font issues:\n\n1. Install missing fonts:\n   - Download font from authorized source\n   - Right-click .ttf/.otf file\n   - Click \"Install\" or \"Install for all users\"\n   - Or copy to C:\\Windows\\Fonts\n\n2. Refresh font cache:\n   - Open Services (services.msc)\n   - Stop \"Windows Font Cache Service\"\n   - Delete C:\\Windows\\ServiceProfiles\\LocalService\\AppData\\Local\\FontCache\n   - Restart service\n   - Restart computer\n\n3. Repair font in Word/Office:\n   - File > Options > Advanced\n   - Scroll to Display section\n   - Check \"Use hardware graphics acceleration\"\n   - Or uncheck if already checked\n\n4. Reset font settings:\n   - Control Panel > Fonts\n   - Font Settings > Restore default\n\n5. Check ClearType settings:\n   - Search \"ClearType\"\n   - Run ClearType text tuner\n   - Follow wizard\n\n6. For garbled text:\n   - Control Panel > Region > Administrative\n   - Change system locale\n   - Or install language pack\n\n7. Update graphics drivers:\n   - Can affect font rendering\n   - Device Manager > Display adapters\n\n8. For missing company fonts:\n   - Contact IT for font package\n   - Corporate fonts may be centrally managed\n\n9. Check document compatibility:\n   - Document may use fonts you don't have\n   - Try font substitution\n   - Or request fonts from document creator\n\n**For web fonts:**\n- Clear browser cache\n- Disable browser extensions\n- Try different browser\n\nContact IT for corporate font installation or licensing.",
+        "auto_resolvable": true,
+        "priority_level": "low"
+    },
+    {
+        "category": "Activation Issues",
+        "title": "Windows Activation Error",
+        "description": "Windows not activated or activation expired",
+        "keywords": ["windows activation", "activation error", "not activated", "product key", "windows license", "activation failed"],
+        "solution": "For Windows activation issues:\n\n1. Check activation status:\n   - Settings > Update & Security > Activation\n   - View current activation state\n\n2. Run activation troubleshooter:\n   - Settings > Activation > Troubleshoot\n   - Follow wizard instructions\n\n3. Verify internet connection:\n   - Windows activation requires internet\n   - Connect to network/VPN\n\n4. Reactivate Windows:\n   - Settings > Activation\n   - Click \"Activate Windows\"\n   - May reactivate automatically\n\n5. For hardware change message:\n   - \"Windows not activated due to hardware change\"\n   - Run troubleshooter\n   - Select \"I changed hardware recently\"\n   - Sign in with Microsoft account\n\n6. For corporate computers:\n   - Should activate automatically via KMS\n   - Must be on corporate network\n   - Connect to VPN and retry\n\n7. Check BIOS activation:\n   - Some PCs have key embedded in BIOS\n   - Should auto-activate when online\n\n8. For \"Windows not genuine\" error:\n   - May indicate counterfeit or tampered installation\n   - Contact IT immediately\n\n**DO NOT:**\n- Purchase product keys from unauthorized sellers\n- Use activation cracks or tools\n- Share product keys\n\n**For company computers:**\nContact IT support - they will:\n- Verify licensing\n- Reactivate via KMS server\n- Replace computer if needed\n- Ensure compliance\n\nActivation issues require IT support assistance.",
+        "auto_resolvable": false,
+        "priority_level": "high"
+    },
+    {
+        "category": "Mapping Network Drives",
+        "title": "How to Map Network Drive",
+        "description": "Instructions for mapping shared drives",
+        "keywords": ["map drive", "network drive", "map network drive", "shared drive", "drive mapping", "connect network drive"],
+        "solution": "To map a network drive:\n\n**Method 1: File Explorer**\n1. Open File Explorer\n2. Click \"This PC\" or \"Computer\"\n3. Click \"Map network drive\" in ribbon\n4. Select drive letter (e.g., Z:)\n5. Enter folder path:\n   - Format: \\\\servername\\sharename\n   - Example: \\\\fileserver\\dept_shared\n6. Check \"Reconnect at sign-in\" (if permanent)\n7. Check \"Connect using different credentials\" (if needed)\n8. Click Finish\n9. Enter credentials if prompted\n\n**Method 2: Command Line**\n1. Open Command Prompt\n2. Run: net use Z: \\\\servername\\sharename\n3. Add /persistent:yes to reconnect at startup\n\n**Method 3: Run Command**\n1. Press Win+R\n2. Type: \\\\servername\\sharename\n3. Right-click drive > Map network drive\n\n**Common paths:**\n- Department shares: \\\\fileserver\\departments\n- Home folder: \\\\fileserver\\users\\username\n- Project drives: \\\\fileserver\\projects\n\n**Troubleshooting:**\n- Ensure correct server name and path\n- Must be on VPN if remote\n- Verify you have permissions\n- Check if mapped correctly: net use (in CMD)\n\n**To disconnect:**\n- Right-click mapped drive > Disconnect\n- Or: net use Z: /delete\n\n**Best practices:**\n- Use consistent drive letters across computers\n- Document which drives are mapped where\n- Don't map too many drives (slows startup)\n\nContact IT for correct server paths and permissions.",
+        "auto_resolvable": true,
+        "priority_level": "low"
+    },
+    {
+        "category": "Frozen Application",
+        "title": "Application Frozen or Not Responding",
+        "description": "Program hung and not responding to inputs",
+        "keywords": ["frozen", "not responding", "hung", "application frozen", "program frozen", "stuck", "unresponsive"],
+        "solution": "For frozen applications:\n\n1. Wait 2-3 minutes:\n   - Application may be processing\n   - Check disk/CPU activity\n   - Look for \"Not Responding\" in title bar\n\n2. Try Alt+Tab:\n   - Switch to another window\n   - Switch back\n   - May unfreeze application\n\n3. End application task:\n   - Ctrl+Shift+Esc (Task Manager)\n   - Find application in Processes\n   - Right-click > End task\n   - Click \"End process\" if warning appears\n\n4. Force quit (if End task doesn't work):\n   - Task Manager > Details tab\n   - Find .exe file\n   - Right-click > End process tree\n\n5. Check if saving:\n   - Application may be autosaving\n   - Check for save dialog hidden behind window\n\n6. For Office applications:\n   - Often recover unsaved work on restart\n   - Look for Document Recovery pane\n\n7. Check temp files:\n   - May have auto-saved versions\n   - %temp% or application temp folder\n\n8. Restart computer if can't close:\n   - Last resort\n   - May lose unsaved work\n\n**Prevention:**\n- Save frequently (Ctrl+S)\n- Enable auto-save if available\n- Close applications when done\n- Don't open too many files at once\n- Keep applications updated\n\n**If application freezes repeatedly:**\n- Check system resources (RAM, CPU)\n- Update application\n- Repair or reinstall\n- Contact IT support\n\n**For critical work frozen:**\nContact IT immediately - may be able to:\n- Force save from command line\n- Recover from temp files\n- Use recovery tools",
+        "auto_resolvable": true,
+        "priority_level": "medium"
+    },
+    {
+        "category": "Date Time Sync",
+        "title": "Computer Time Keeps Changing",
+        "description": "System time not staying synchronized",
+        "keywords": ["time sync", "clock wrong", "time keeps changing", "date wrong", "time drift", "clock sync"],
+        "solution": "For time synchronization issues:\n\n1. Sync time immediately:\n   - Settings > Time & Language > Date & time\n   - Click \"Sync now\" under Additional settings\n\n2. Enable automatic time:\n   - Turn on \"Set time automatically\"\n   - Turn on \"Set time zone automatically\"\n\n3. Verify time zone:\n   - Check correct time zone selected\n   - Account for daylight saving\n\n4. Change time server:\n   - Click \"Sync now\" > \"Add clocks for different time zones\"\n   - Internet Time tab > Change settings\n   - Try different servers:\n     * time.windows.com (default)\n     * time.nist.gov\n     * pool.ntp.org\n\n5. For domain computers:\n   - Should sync from domain controller\n   - Run: w32tm /resync /force\n   - Must be on corporate network\n\n6. Check CMOS battery:\n   - If time resets on every restart\n   - Desktop: Replace CMOS battery\n   - Laptop: Contact IT for service\n\n7. Update BIOS:\n   - Outdated BIOS may cause time issues\n   - Download from manufacturer\n   - Install carefully (can brick system)\n\n8. Check for malware:\n   - Some malware changes system time\n   - Run full antivirus scan\n\n9. For persistent drift:\n   - May indicate hardware issue\n   - Contact IT for diagnosis\n\n**Why correct time matters:**\n- SSL/TLS certificate validation\n- Domain authentication\n- File timestamps\n- Scheduled tasks\n- Meeting times\n- Email timestamps\n\nContact IT if time won't stay synchronized - may need registry tweaks or hardware replacement.",
+        "auto_resolvable": true,
+        "priority_level": "medium"
+    },
+    {
+        "category": "Search Not Working",
+        "title": "Windows Search Not Finding Files",
+        "description": "File search functionality not working properly",
+        "keywords": ["search", "windows search", "file search", "search not working", "can't find files", "search broken", "cortana search"],
+        "solution": "For Windows search issues:\n\n1. Restart Windows Search service:\n   - Services.msc\n   - Find \"Windows Search\"\n   - Right-click > Restart\n\n2. Rebuild search index:\n   - Settings > Search > Searching Windows\n   - Click \"Advanced Search Indexer Settings\"\n   - Click \"Advanced\" > \"Rebuild\"\n   - May take hours for large drives\n\n3. Check indexed locations:\n   - Indexing Options > Modify\n   - Ensure locations you're searching are checked\n   - Add folders if missing\n\n4. Run search troubleshooter:\n   - Settings > Update & Security > Troubleshoot\n   - Find \"Search and Indexing\"\n   - Run troubleshooter\n\n5. Reset Windows Search:\n   - PowerShell as admin:\n   - Get-AppxPackage -Name Microsoft.Windows.Search | Remove-AppxPackage\n   - Restart computer (Windows will reinstall)\n\n6. Check if file type is indexed:\n   - Indexing Options > Advanced > File Types\n   - Ensure file extensions are listed\n   - Add if missing\n\n7. Temporarily disable antivirus:\n   - May be interfering with indexing\n   - Test after disabling\n   - Re-enable after test\n\n8. Check disk space:\n   - Need space for search index\n   - Free up at least 15% of drive\n\n9. Use alternative search:\n   - File Explorer search bar\n   - Everything (third-party tool)\n   - Command line: dir /s filename\n\n**For network drives:**\n- Network locations not indexed by default\n- Must enable offline files for indexing\n- Or use Windows Search Protocol\n\n**Search tips:**\n- Use quotation marks for exact phrase\n- Use wildcards: *.docx\n- Filter by date, type, size\n- Search from specific folder location\n\nContact IT if search remains broken after rebuild.",
+        "auto_resolvable": true,
+        "priority_level": "low"
     }
 ]
