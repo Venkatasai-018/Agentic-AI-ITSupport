@@ -1,0 +1,92 @@
+[
+    {
+        "category": "Password Reset",
+        "title": "Password Reset and Account Recovery",
+        "description": "Help with forgotten passwords, account lockouts, and login issues",
+        "keywords": ["password", "forgot password", "reset password", "login issue", "can't login", "locked out", "account locked", "authentication"],
+        "solution": "To reset your password:\n1. Go to the company password reset portal at https://portal.company.com/reset\n2. Enter your email address or username\n3. Check your email for a reset link (check spam folder if not found)\n4. Click the link within 1 hour and create a new password\n5. Your password must be at least 8 characters with uppercase, lowercase, numbers, and special characters\n6. After resetting, try logging in with your new password\n\nIf you're still locked out after 3 attempts, contact IT support.",
+        "auto_resolvable": true,
+        "priority_level": "medium"
+    },
+    {
+        "category": "Network Connectivity",
+        "title": "WiFi and Network Connection Issues",
+        "description": "Problems with internet connectivity, WiFi, and network access",
+        "keywords": ["internet", "network", "wifi", "connection", "can't connect", "no internet", "slow connection", "disconnected", "ethernet"],
+        "solution": "For network connectivity issues:\n1. Check if your WiFi is enabled on your device\n2. Verify you're connected to the correct network (CompanyWiFi)\n3. Try disconnecting and reconnecting to the network\n4. Restart your computer or device\n5. If using WiFi, try moving closer to the access point\n6. For slow connections, close unnecessary applications\n7. Try connecting via ethernet cable if available\n\nIf the issue persists after these steps, it may require network infrastructure checks by IT staff.",
+        "auto_resolvable": false,
+        "priority_level": "high"
+    },
+    {
+        "category": "Software Installation",
+        "title": "Software Installation and Access Requests",
+        "description": "Requests for new software, applications, or program installations",
+        "keywords": ["install", "software", "application", "program", "need software", "download", "install app", "new software"],
+        "solution": "For software installation requests:\n1. Visit the company software portal at https://portal.company.com/software\n2. Search for the required software in the catalog\n3. Click 'Request Access' for available software\n4. Provide business justification for your request\n5. Wait for manager approval (usually 1-2 business days)\n6. Once approved, download and install from the portal\n\nFor software not in the catalog:\n- Submit a formal request with business justification\n- Include vendor information and pricing\n- IT will evaluate security and compatibility\n- Approval process may take 3-5 business days",
+        "auto_resolvable": false,
+        "priority_level": "low"
+    },
+    {
+        "category": "Email Issues",
+        "title": "Email and Outlook Problems",
+        "description": "Issues with sending, receiving, or accessing email",
+        "keywords": ["email", "outlook", "can't send email", "can't receive email", "email not working", "mailbox", "inbox"],
+        "solution": "For email issues:\n1. Check your internet connection first\n2. Try closing and reopening your email client (Outlook/webmail)\n3. Clear your email cache: File > Account Settings > Account Settings > Data Files > Clear\n4. Verify your mailbox is not full (check quota in settings)\n5. Check if emails are in Junk/Spam folder\n6. If you can't access your account, try resetting your password\n7. Ensure your email client is up to date\n8. Try accessing email via webmail to isolate the issue\n\nIf problems persist after these steps, contact IT support.",
+        "auto_resolvable": true,
+        "priority_level": "medium"
+    },
+    {
+        "category": "VPN Access",
+        "title": "VPN Connection and Remote Access",
+        "description": "Problems connecting to VPN for remote work",
+        "keywords": ["vpn", "remote access", "work from home", "can't connect to vpn", "vpn not working", "remote desktop", "virtual private network"],
+        "solution": "For VPN connection issues:\n1. Ensure you have the latest VPN client installed (GlobalProtect/Cisco AnyConnect)\n2. Check your internet connection is stable\n3. Try disconnecting and reconnecting to VPN\n4. Verify your VPN credentials are correct (same as domain login)\n5. Restart the VPN client application\n6. Restart your computer\n7. Check if firewall/antivirus is blocking VPN\n8. Try connecting from a different network\n\nIf VPN still doesn't connect, this requires IT support assistance to check server-side settings and your account status.",
+        "auto_resolvable": false,
+        "priority_level": "high"
+    },
+    {
+        "category": "Printer Issues",
+        "title": "Printer and Printing Problems",
+        "description": "Issues with printing documents or printer connectivity",
+        "keywords": ["printer", "print", "can't print", "printer not working", "printing problem", "print queue", "scanner"],
+        "solution": "For printer issues:\n1. Check if the printer is powered on and connected (cables/WiFi)\n2. Verify you're connected to the correct printer in your settings\n3. Check the printer queue and clear any stuck jobs:\n   - Windows: Settings > Devices > Printers & Scanners\n   - Mac: System Preferences > Printers & Scanners\n4. Try restarting the printer (power off, wait 30 seconds, power on)\n5. Check if printer has paper and toner/ink\n6. Remove and re-add the printer in your system\n7. Update or reinstall printer drivers from company portal\n8. Try printing a test page\n\nIf printer still doesn't work, contact IT support.",
+        "auto_resolvable": true,
+        "priority_level": "low"
+    },
+    {
+        "category": "Hardware Issues",
+        "title": "Hardware Problems and Equipment Malfunctions",
+        "description": "Physical hardware issues requiring inspection or replacement",
+        "keywords": ["hardware", "laptop", "computer", "monitor", "keyboard", "mouse", "broken", "not working", "damaged", "screen broken"],
+        "solution": "Hardware issues require physical inspection and repair. Your request will be escalated to IT support staff who will:\n\n1. Contact you within 4 hours (high priority) or 24 hours (normal priority)\n2. Assess the hardware problem remotely or schedule an on-site visit\n3. Determine if repair or replacement is needed\n4. Provide loaner equipment if necessary\n5. Coordinate repair/replacement timeline\n\nExpected response time: 4-24 hours\nExpected resolution time: 1-3 business days depending on parts availability\n\nFor urgent hardware failures affecting critical work, mark as HIGH PRIORITY.",
+        "auto_resolvable": false,
+        "priority_level": "high"
+    },
+    {
+        "category": "Account Access",
+        "title": "Access Permissions and Authorization",
+        "description": "Requests for access to systems, folders, or applications",
+        "keywords": ["access", "permission", "can't access", "denied", "authorization", "shared drive", "folder access", "access request"],
+        "solution": "For access permission requests:\n\n1. Identify the specific resource you need access to:\n   - Shared drive/folder path\n   - Application name\n   - System or database name\n\n2. Verify your role requires this access (check with your manager)\n\n3. Submit an access request:\n   - Go to https://portal.company.com/access\n   - Fill out the access request form\n   - Provide business justification\n   - Get manager approval (required)\n\n4. IT will review the request:\n   - Security team validates the request\n   - Access provisioned within 1-2 business days\n   - You'll receive email confirmation when granted\n\n5. If urgent, contact IT support with approved request details\n\nNote: All access requests require manager approval for security compliance.",
+        "auto_resolvable": false,
+        "priority_level": "medium"
+    },
+    {
+        "category": "Microsoft Office Issues",
+        "title": "Microsoft Office Application Problems",
+        "description": "Issues with Word, Excel, PowerPoint, or other Office apps",
+        "keywords": ["word", "excel", "powerpoint", "office", "office 365", "teams", "onedrive", "office not working"],
+        "solution": "For Microsoft Office issues:\n\n1. Ensure Office is activated:\n   - Open any Office app\n   - Go to File > Account\n   - Check activation status\n\n2. Update Office to latest version:\n   - File > Account > Update Options > Update Now\n\n3. Repair Office installation:\n   - Windows: Settings > Apps > Microsoft Office > Modify > Repair\n   - Mac: Reinstall from company portal\n\n4. Clear Office cache and temporary files\n\n5. Sign out and sign back in to your Microsoft account\n\n6. For specific app crashes:\n   - Start Office in Safe Mode\n   - Disable add-ins one by one to identify conflicts\n\n7. Check if files are stored on OneDrive and sync is working\n\nIf issues persist, contact IT support for advanced troubleshooting.",
+        "auto_resolvable": true,
+        "priority_level": "medium"
+    },
+    {
+        "category": "Security and Malware",
+        "title": "Security Concerns and Malware Issues",
+        "description": "Virus alerts, suspicious emails, or security concerns",
+        "keywords": ["virus", "malware", "security", "suspicious email", "phishing", "ransomware", "antivirus", "threat"],
+        "solution": "For security and malware concerns:\n\n**IMMEDIATE ACTIONS:**\n1. If you suspect malware infection:\n   - Disconnect from network immediately (disable WiFi/unplug ethernet)\n   - Do NOT turn off your computer\n   - Contact IT support immediately at ext. 2222\n\n2. For suspicious emails:\n   - Do NOT click any links or download attachments\n   - Do NOT reply or forward\n   - Report via the 'Report Phishing' button in Outlook\n   - Delete the email\n\n3. For security alerts from antivirus:\n   - Follow the recommended action\n   - Run a full system scan\n   - Document the threat name\n\n**This issue requires immediate IT support escalation for:**\n- Malware infections\n- Data breach concerns\n- Ransomware alerts\n- Compromised accounts\n\nExpected response time: Immediate (within 15 minutes)",
+        "auto_resolvable": false,
+        "priority_level": "critical"
+    }
+]

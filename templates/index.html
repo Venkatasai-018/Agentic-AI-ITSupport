@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI IT Support System - Submit Request</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+    <div class="container">
+        <div class="card">
+            <div class="header">
+                <div class="icon">🤖</div>
+                <h1>AI IT Support System</h1>
+                <p class="subtitle">Powered by Multi-Agent RAG Architecture</p>
+            </div>
+
+            <div id="loginSection">
+                <h2 class="text-center">Login to Submit Request</h2>
+                <form id="loginForm">
+                    <div class="form-group">
+                        <label for="username">Username:</label>
+                        <input type="text" id="username" name="username" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="password">Password:</label>
+                        <input type="password" id="password" name="password" required>
+                    </div>
+                    <button type="submit" class="btn btn-primary btn-block">Login</button>
+                </form>
+                <p class="text-center mt-20">
+                    Don't have an account? <a href="#" onclick="showRegister()">Register here</a>
+                </p>
+                <p class="text-center mt-20" style="color: #666; font-size: 0.9em;">
+                    Demo: admin / admin123
+                </p>
+            </div>
+
+            <div id="registerSection" class="hidden">
+                <h2 class="text-center">Register New Account</h2>
+                <form id="registerForm">
+                    <div class="form-group">
+                        <label for="reg_username">Username:</label>
+                        <input type="text" id="reg_username" name="username" required minlength="3">
+                    </div>
+                    <div class="form-group">
+                        <label for="reg_email">Email:</label>
+                        <input type="email" id="reg_email" name="email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="reg_fullname">Full Name:</label>
+                        <input type="text" id="reg_fullname" name="full_name">
+                    </div>
+                    <div class="form-group">
+                        <label for="reg_password">Password:</label>
+                        <input type="password" id="reg_password" name="password" required minlength="6">
+                    </div>
+                    <button type="submit" class="btn btn-primary btn-block">Register</button>
+                </form>
+                <p class="text-center mt-20">
+                    Already have an account? <a href="#" onclick="showLogin()">Login here</a>
+                </p>
+            </div>
+
+            <div id="requestSection" class="hidden">
+                <div class="text-right">
+                    <span id="userInfo"></span> | 
+                    <a href="#" onclick="logout()">Logout</a> | 
+                    <a href="/dashboard">Dashboard</a>
+                </div>
+
+                <h2 class="text-center">Submit IT Support Request</h2>
+                
+                <div id="alertBox"></div>
+
+                <form id="supportForm">
+                    <div class="form-group">
+                        <label for="issue">Describe your IT issue:</label>
+                        <textarea 
+                            id="issue" 
+                            name="issue_description" 
+                            placeholder="Example: I forgot my password and can't login to my account..." 
+                            required
+                            minlength="10"
+                        ></textarea>
+                        <small style="color: #666;">Minimum 10 characters</small>
+                    </div>
+
+                    <button type="submit" class="btn btn-primary btn-block" id="submitBtn">
+                        Submit Request
+                    </button>
+                </form>
+
+                <div class="loader" id="loader">
+                    <div class="spinner"></div>
+                    <p>Processing your request through AI agents...</p>
+                    <p style="font-size: 0.9em; color: #666;">
+                        🔍 Classification → 🤔 Decision → ⚙️ Resolution
+                    </p>
+                </div>
+
+                <div id="resultBox" class="hidden"></div>
+
+                <div class="card mt-20" style="background: #f5f5f5;">
+                    <h3>💡 Example IT Issues</h3>
+                    <p style="color: #666; margin-bottom: 15px;">Click any example to try:</p>
+                    <div class="example-btn" onclick="fillExample(this)">
+                        🔑 I forgot my password and can't login
+                    </div>
+                    <div class="example-btn" onclick="fillExample(this)">
+                        📡 My WiFi is not connecting to the network
+                    </div>
+                    <div class="example-btn" onclick="fillExample(this)">
+                        📧 I can't send or receive emails in Outlook
+                    </div>
+                    <div class="example-btn" onclick="fillExample(this)">
+                        🖨️ The printer is not responding when I try to print
+                    </div>
+                    <div class="example-btn" onclick="fillExample(this)">
+                        🔒 I need access to the shared drive folder
+                    </div>
+                    <div class="example-btn" onclick="fillExample(this)">
+                        💻 My laptop screen is broken and needs repair
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <style>
+        .example-btn {
+            padding: 12px 15px;
+            margin: 8px 0;
+            background: white;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s;
+            border-left: 3px solid var(--primary-color);
+        }
+
+        .example-btn:hover {
+            background: #e8eaf6;
+            transform: translateX(5px);
+        }
+    </style>
+
+    <script>
+        let authToken = localStorage.getItem('authToken');
+        let currentUser = null;
+
+        // Check if already logged in
+        if (authToken) {
+            checkAuth();
+        }
+
+        // Login Form
+        document.getElementById('loginForm').addEventListener('submit', async (e) => {
+            e.preventDefault();
+            
+            const formData = new FormData();
+            formData.append('username', document.getElementById('username').value);
+            formData.append('password', document.getElementById('password').value);
+
+            try {
+                const response = await fetch('/api/auth/login', {
+                    method: 'POST',
+                    body: formData
+                });
+
+                if (response.ok) {
+                    const data = await response.json();
+                    localStorage.setItem('authToken', data.access_token);
+                    authToken = data.access_token;
+                    await checkAuth();
+                } else {
+                    const error = await response.json();
+                    showAlert('danger', error.detail || 'Login failed');
+                }
+            } catch (error) {
+                showAlert('danger', 'Login error: ' + error.message);
+            }
+        });
+
+        // Register Form
+        document.getElementById('registerForm').addEventListener('submit', async (e) => {
+            e.preventDefault();
+            
+            const userData = {
+                username: document.getElementById('reg_username').value,
+                email: document.getElementById('reg_email').value,
+                full_name: document.getElementById('reg_fullname').value,
+                password: document.getElementById('reg_password').value,
+                role: 'user'
+            };
+
+            try {
+                const response = await fetch('/api/auth/register', {
+                    method: 'POST',
+                    headers: {'Content-Type': 'application/json'},
+                    body: JSON.stringify(userData)
+                });
+
+                if (response.ok) {
+                    showAlert('success', 'Registration successful! Please login.');
+                    showLogin();
+                } else {
+                    const error = await response.json();
+                    showAlert('danger', error.detail || 'Registration failed');
+                }
+            } catch (error) {
+                showAlert('danger', 'Registration error: ' + error.message);
+            }
+        });
+
+        // Support Form
+        document.getElementById('supportForm').addEventListener('submit', async (e) => {
+            e.preventDefault();
+            
+            const issueDescription = document.getElementById('issue').value;
+            const submitBtn = document.getElementById('submitBtn');
+            const loader = document.getElementById('loader');
+            const resultBox = document.getElementById('resultBox');
+
+            // Show loader
+            loader.classList.add('active');
+            submitBtn.disabled = true;
+            resultBox.classList.add('hidden');
+            document.getElementById('alertBox').innerHTML = '';
+
+            try {
+                const response = await fetch('/api/workflow/process', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'Authorization': `Bearer ${authToken}`
+                    },
+                    body: JSON.stringify({
+                        issue_description: issueDescription
+                    })
+                });
+
+                loader.classList.remove('active');
+                submitBtn.disabled = false;
+
+                if (response.ok) {
+                    const data = await response.json();
+                    displayResult(data);
+                    document.getElementById('issue').value = '';
+                } else {
+                    const error = await response.json();
+                    showAlert('danger', error.detail || 'Request processing failed');
+                }
+            } catch (error) {
+                loader.classList.remove('active');
+                submitBtn.disabled = false;
+                showAlert('danger', 'Error: ' + error.message);
+            }
+        });
+
+        async function checkAuth() {
+            try {
+                const response = await fetch('/api/auth/me', {
+                    headers: {'Authorization': `Bearer ${authToken}`}
+                });
+
+                if (response.ok) {
+                    currentUser = await response.json();
+                    document.getElementById('loginSection').classList.add('hidden');
+                    document.getElementById('registerSection').classList.add('hidden');
+                    document.getElementById('requestSection').classList.remove('hidden');
+                    document.getElementById('userInfo').textContent = `👤 ${currentUser.full_name || currentUser.username}`;
+                } else {
+                    logout();
+                }
+            } catch (error) {
+                logout();
+            }
+        }
+
+        function logout() {
+            localStorage.removeItem('authToken');
+            authToken = null;
+            currentUser = null;
+            document.getElementById('loginSection').classList.remove('hidden');
+            document.getElementById('requestSection').classList.add('hidden');
+        }
+
+        function showRegister() {
+            document.getElementById('loginSection').classList.add('hidden');
+            document.getElementById('registerSection').classList.remove('hidden');
+        }
+
+        function showLogin() {
+            document.getElementById('registerSection').classList.add('hidden');
+            document.getElementById('loginSection').classList.remove('hidden');
+        }
+
+        function fillExample(element) {
+            const text = element.textContent.substring(2).trim();
+            document.getElementById('issue').value = text;
+        }
+
+        function displayResult(data) {
+            const resultBox = document.getElementById('resultBox');
+            const statusClass = data.status === 'resolved' ? 'success' : 'warning';
+            const icon = data.status === 'resolved' ? '✅' : '📨';
+
+            resultBox.innerHTML = `
+                <div class="alert alert-${statusClass}">
+                    <h3>${icon} ${data.status === 'resolved' ? 'Issue Resolved!' : 'Request Escalated'}</h3>
+                    <p><strong>Ticket ID:</strong> <span style="color: var(--primary-color); font-weight: bold;">${data.ticket_id}</span></p>
+                    <p><strong>Category:</strong> ${data.category}</p>
+                    <p><strong>Priority:</strong> <span class="badge badge-${data.priority === 'high' || data.priority === 'critical' ? 'danger' : data.priority === 'medium' ? 'warning' : 'info'}">${data.priority.toUpperCase()}</span></p>
+                    <p><strong>Resolution Type:</strong> ${data.resolution_type}</p>
+                    ${data.estimated_resolution_time ? `<p><strong>Estimated Time:</strong> ${data.estimated_resolution_time}</p>` : ''}
+                    <hr style="margin: 15px 0;">
+                    <div style="white-space: pre-line; line-height: 1.6;">${data.message}</div>
+                </div>
+            `;
+            resultBox.classList.remove('hidden');
+        }
+
+        function showAlert(type, message) {
+            const alertBox = document.getElementById('alertBox');
+            alertBox.innerHTML = `
+                <div class="alert alert-${type}">
+                    ${message}
+                </div>
+            `;
+            setTimeout(() => {
+                alertBox.innerHTML = '';
+            }, 5000);
+        }
+    </script>
+</body>
+</html>
