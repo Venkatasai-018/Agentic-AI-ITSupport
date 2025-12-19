@@ -5,7 +5,6 @@ Central orchestration for the Agentic AI IT Support System
 import logging
 from contextlib import asynccontextmanager
 from fastapi import FastAPI, Depends, HTTPException, status, Request
-from fastapi.security import OAuth2PasswordRequestForm
 from fastapi.staticfiles import StaticFiles
 from fastapi.templating import Jinja2Templates
 from fastapi.responses import HTMLResponse
@@ -16,16 +15,11 @@ from typing import List, Optional
 
 from config import settings
 from database import init_db, get_db
-from models import User, Ticket, AgentLog, SystemMetrics
+from models import Ticket, AgentLog, SystemMetrics
 from schemas import (
-    UserCreate, UserResponse, UserLogin, Token,
     TicketCreate, TicketResponse, TicketUpdate,
     WorkflowRequest, WorkflowResponse,
     AgentLogResponse, DashboardMetrics, TicketAnalytics
-)
-from auth import (
-    get_password_hash, verify_password, create_access_token,
-    get_current_user, get_current_active_user, require_admin, require_it_staff
 )
 from rag_system import get_rag_system
 from agents import create_agents
@@ -51,26 +45,6 @@ async def lifespan(app: FastAPI):
     rag = get_rag_system()
     logger.info("RAG system initialized")
     
-    # Create default admin user if not exists
-    async for db in get_db():
-        result = await db.execute(select(User).where(User.username == "admin"))
-        admin_user = result.scalar_one_or_none()
-        
-        if not admin_user:
-            admin = User(
-                username="admin",
-                email="admin@company.com",
-                hashed_password=get_password_hash("admin123"),
-                full_name="System Administrator",
-                role="admin",
-                is_active=True
-            )
-            db.add(admin)
-            await db.commit()
-            logger.info("Default admin user created (username: admin, password: admin123)")
-        
-        break
-    
     logger.info(f"🚀 {settings.APP_NAME} v{settings.APP_VERSION} is ready!")
     logger.info(f"📚 API Documentation: http://{settings.HOST}:{settings.PORT}/docs")
     
@@ -93,80 +67,11 @@ app.mount("/static", StaticFiles(directory="static"), name="static")
 templates = Jinja2Templates(directory="templates")
 
 
-# ==================== Authentication Endpoints ====================
-
-@app.post("/api/auth/register", response_model=UserResponse, status_code=status.HTTP_201_CREATED)
-async def register(user_data: UserCreate, db: AsyncSession = Depends(get_db)):
-    """Register a new user"""
-    # Check if username exists
-    result = await db.execute(select(User).where(User.username == user_data.username))
-    if result.scalar_one_or_none():
-        raise HTTPException(status_code=400, detail="Username already registered")
-    
-    # Check if email exists
-    result = await db.execute(select(User).where(User.email == user_data.email))
-    if result.scalar_one_or_none():
-        raise HTTPException(status_code=400, detail="Email already registered")
-    
-    # Create new user
-    user = User(
-        username=user_data.username,
-        email=user_data.email,
-        hashed_password=get_password_hash(user_data.password),
-        full_name=user_data.full_name,
-        role=user_data.role,
-        is_active=True
-    )
-    
-    db.add(user)
-    await db.commit()
-    await db.refresh(user)
-    
-    logger.info(f"New user registered: {user.username}")
-    return user
-
-
-@app.post("/api/auth/login", response_model=Token)
-async def login(
-    form_data: OAuth2PasswordRequestForm = Depends(),
-    db: AsyncSession = Depends(get_db)
-):
-    """Login and get access token"""
-    # Get user
-    result = await db.execute(select(User).where(User.username == form_data.username))
-    user = result.scalar_one_or_none()
-    
-    if not user or not verify_password(form_data.password, user.hashed_password):
-        raise HTTPException(
-            status_code=status.HTTP_401_UNAUTHORIZED,
-            detail="Incorrect username or password",
-            headers={"WWW-Authenticate": "Bearer"},
-        )
-    
-    if not user.is_active:
-        raise HTTPException(status_code=400, detail="Inactive user")
-    
-    # Create access token
-    access_token = create_access_token(
-        data={"sub": user.username, "role": user.role}
-    )
-    
-    logger.info(f"User logged in: {user.username}")
-    return {"access_token": access_token, "token_type": "bearer"}
-
-
-@app.get("/api/auth/me", response_model=UserResponse)
-async def get_me(current_user: User = Depends(get_current_active_user)):
-    """Get current user information"""
-    return current_user
-
-
 # ==================== Workflow Orchestration Endpoint ====================
 
 @app.post("/api/workflow/process", response_model=WorkflowResponse)
 async def process_workflow(
     request: WorkflowRequest,
-    current_user: User = Depends(get_current_active_user),
     db: AsyncSession = Depends(get_db)
 ):
     """
@@ -179,7 +84,7 @@ async def process_workflow(
     4. Resolution/Escalation Agent handles the issue
     5. Logging Agent records everything
     """
-    logger.info(f"Processing new workflow for user {current_user.username}")
+    logger.info(f"Processing new workflow request")
     
     # Initialize RAG system and agents
     rag = get_rag_system()
@@ -188,8 +93,8 @@ async def process_workflow(
     # Step 1: UI Agent - Capture request
     ui_result = agents["ui"].capture_request(
         issue_description=request.issue_description,
-        user_id=current_user.id,
-        user_details={"email": current_user.email, "full_name": current_user.full_name}
+        user_id=1,  # Default user ID
+        user_details={"email": "user@company.com", "full_name": "Anonymous User"}
     )
     
     if not ui_result["success"]:
@@ -198,7 +103,7 @@ async def process_workflow(
     # Step 2: Create ticket
     ticket_id = await agents["logging"].create_ticket(
         issue_description=request.issue_description,
-        user_id=current_user.id
+        user_id=1  # Default user ID
     )
     
     # Get ticket object
@@ -331,15 +236,10 @@ async def get_tickets(
     skip: int = 0,
     limit: int = 50,
     status_filter: Optional[str] = None,
-    current_user: User = Depends(get_current_active_user),
     db: AsyncSession = Depends(get_db)
 ):
-    """Get tickets (users see their own, admin/IT staff see all)"""
+    """Get all tickets"""
     query = select(Ticket).order_by(Ticket.created_at.desc())
-    
-    # Role-based filtering
-    if current_user.role == "user":
-        query = query.where(Ticket.user_id == current_user.id)
     
     if status_filter:
         query = query.where(Ticket.status == status_filter)
@@ -355,7 +255,6 @@ async def get_tickets(
 @app.get("/api/tickets/{ticket_id}", response_model=TicketResponse)
 async def get_ticket(
     ticket_id: str,
-    current_user: User = Depends(get_current_active_user),
     db: AsyncSession = Depends(get_db)
 ):
     """Get specific ticket details"""
@@ -365,10 +264,6 @@ async def get_ticket(
     if not ticket:
         raise HTTPException(status_code=404, detail="Ticket not found")
     
-    # Check authorization
-    if current_user.role == "user" and ticket.user_id != current_user.id:
-        raise HTTPException(status_code=403, detail="Access denied")
-    
     return ticket
 
 
@@ -376,10 +271,9 @@ async def get_ticket(
 async def update_ticket(
     ticket_id: str,
     update_data: TicketUpdate,
-    current_user: User = Depends(require_it_staff),
     db: AsyncSession = Depends(get_db)
 ):
-    """Update ticket (IT staff/admin only)"""
+    """Update ticket"""
     result = await db.execute(select(Ticket).where(Ticket.ticket_id == ticket_id))
     ticket = result.scalar_one_or_none()
     
@@ -401,14 +295,13 @@ async def update_ticket(
     await db.commit()
     await db.refresh(ticket)
     
-    logger.info(f"Ticket {ticket_id} updated by {current_user.username}")
+    logger.info(f"Ticket {ticket_id} updated")
     return ticket
 
 
 @app.get("/api/tickets/{ticket_id}/logs", response_model=List[AgentLogResponse])
 async def get_ticket_logs(
     ticket_id: str,
-    current_user: User = Depends(get_current_active_user),
     db: AsyncSession = Depends(get_db)
 ):
     """Get agent logs for a ticket"""
@@ -418,10 +311,6 @@ async def get_ticket_logs(
     
     if not ticket:
         raise HTTPException(status_code=404, detail="Ticket not found")
-    
-    # Check authorization
-    if current_user.role == "user" and ticket.user_id != current_user.id:
-        raise HTTPException(status_code=403, detail="Access denied")
     
     # Get logs
     result = await db.execute(
@@ -438,10 +327,9 @@ async def get_ticket_logs(
 
 @app.get("/api/analytics/dashboard", response_model=DashboardMetrics)
 async def get_dashboard_metrics(
-    current_user: User = Depends(require_it_staff),
     db: AsyncSession = Depends(get_db)
 ):
-    """Get dashboard metrics (admin/IT staff only)"""
+    """Get dashboard metrics"""
     # Ticket analytics
     total_result = await db.execute(select(func.count(Ticket.id)))
     total_tickets = total_result.scalar()

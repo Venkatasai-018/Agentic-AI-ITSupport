@@ -15,9 +15,7 @@
             </div>
 
             <div class="text-right mb-20">
-                <span id="userInfo"></span> | 
-                <a href="/">Home</a> | 
-                <a href="#" onclick="logout()">Logout</a>
+                <a href="/">Home</a>
             </div>
 
             <div id="alertBox"></div>
@@ -90,34 +88,13 @@
     </div>
 
     <script>
-        let authToken = localStorage.getItem('authToken');
-
-        if (!authToken) {
-            window.location.href = '/';
-        }
-
         // Load dashboard data
         loadDashboard();
 
         async function loadDashboard() {
             try {
-                // Check auth
-                const userResponse = await fetch('/api/auth/me', {
-                    headers: {'Authorization': `Bearer ${authToken}`}
-                });
-
-                if (!userResponse.ok) {
-                    logout();
-                    return;
-                }
-
-                const currentUser = await userResponse.json();
-                document.getElementById('userInfo').textContent = `👤 ${currentUser.full_name || currentUser.username} (${currentUser.role})`;
-
                 // Load analytics
-                const dashResponse = await fetch('/api/analytics/dashboard', {
-                    headers: {'Authorization': `Bearer ${authToken}`}
-                });
+                const dashResponse = await fetch('/api/analytics/dashboard');
 
                 if (dashResponse.ok) {
                     const data = await dashResponse.json();
@@ -128,9 +105,7 @@
                 }
 
                 // Load all tickets
-                const ticketsResponse = await fetch('/api/tickets', {
-                    headers: {'Authorization': `Bearer ${authToken}`}
-                });
+                const ticketsResponse = await fetch('/api/tickets');
 
                 if (ticketsResponse.ok) {
                     const tickets = await ticketsResponse.json();
@@ -211,11 +186,6 @@
                     </tr>
                 `;
             }).join('');
-        }
-
-        function logout() {
-            localStorage.removeItem('authToken');
-            window.location.href = '/';
         }
 
         function showAlert(type, message) {

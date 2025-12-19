@@ -15,57 +15,8 @@
                 <p class="subtitle">Powered by Multi-Agent RAG Architecture</p>
             </div>
 
-            <div id="loginSection">
-                <h2 class="text-center">Login to Submit Request</h2>
-                <form id="loginForm">
-                    <div class="form-group">
-                        <label for="username">Username:</label>
-                        <input type="text" id="username" name="username" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="password">Password:</label>
-                        <input type="password" id="password" name="password" required>
-                    </div>
-                    <button type="submit" class="btn btn-primary btn-block">Login</button>
-                </form>
-                <p class="text-center mt-20">
-                    Don't have an account? <a href="#" onclick="showRegister()">Register here</a>
-                </p>
-                <p class="text-center mt-20" style="color: #666; font-size: 0.9em;">
-                    Demo: admin / admin123
-                </p>
-            </div>
-
-            <div id="registerSection" class="hidden">
-                <h2 class="text-center">Register New Account</h2>
-                <form id="registerForm">
-                    <div class="form-group">
-                        <label for="reg_username">Username:</label>
-                        <input type="text" id="reg_username" name="username" required minlength="3">
-                    </div>
-                    <div class="form-group">
-                        <label for="reg_email">Email:</label>
-                        <input type="email" id="reg_email" name="email" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="reg_fullname">Full Name:</label>
-                        <input type="text" id="reg_fullname" name="full_name">
-                    </div>
-                    <div class="form-group">
-                        <label for="reg_password">Password:</label>
-                        <input type="password" id="reg_password" name="password" required minlength="6">
-                    </div>
-                    <button type="submit" class="btn btn-primary btn-block">Register</button>
-                </form>
-                <p class="text-center mt-20">
-                    Already have an account? <a href="#" onclick="showLogin()">Login here</a>
-                </p>
-            </div>
-
-            <div id="requestSection" class="hidden">
+            <div id="requestSection">
                 <div class="text-right">
-                    <span id="userInfo"></span> | 
-                    <a href="#" onclick="logout()">Logout</a> | 
                     <a href="/dashboard">Dashboard</a>
                 </div>
 
@@ -145,73 +96,6 @@
     </style>
 
     <script>
-        let authToken = localStorage.getItem('authToken');
-        let currentUser = null;
-
-        // Check if already logged in
-        if (authToken) {
-            checkAuth();
-        }
-
-        // Login Form
-        document.getElementById('loginForm').addEventListener('submit', async (e) => {
-            e.preventDefault();
-            
-            const formData = new FormData();
-            formData.append('username', document.getElementById('username').value);
-            formData.append('password', document.getElementById('password').value);
-
-            try {
-                const response = await fetch('/api/auth/login', {
-                    method: 'POST',
-                    body: formData
-                });
-
-                if (response.ok) {
-                    const data = await response.json();
-                    localStorage.setItem('authToken', data.access_token);
-                    authToken = data.access_token;
-                    await checkAuth();
-                } else {
-                    const error = await response.json();
-                    showAlert('danger', error.detail || 'Login failed');
-                }
-            } catch (error) {
-                showAlert('danger', 'Login error: ' + error.message);
-            }
-        });
-
-        // Register Form
-        document.getElementById('registerForm').addEventListener('submit', async (e) => {
-            e.preventDefault();
-            
-            const userData = {
-                username: document.getElementById('reg_username').value,
-                email: document.getElementById('reg_email').value,
-                full_name: document.getElementById('reg_fullname').value,
-                password: document.getElementById('reg_password').value,
-                role: 'user'
-            };
-
-            try {
-                const response = await fetch('/api/auth/register', {
-                    method: 'POST',
-                    headers: {'Content-Type': 'application/json'},
-                    body: JSON.stringify(userData)
-                });
-
-                if (response.ok) {
-                    showAlert('success', 'Registration successful! Please login.');
-                    showLogin();
-                } else {
-                    const error = await response.json();
-                    showAlert('danger', error.detail || 'Registration failed');
-                }
-            } catch (error) {
-                showAlert('danger', 'Registration error: ' + error.message);
-            }
-        });
-
         // Support Form
         document.getElementById('supportForm').addEventListener('submit', async (e) => {
             e.preventDefault();
@@ -231,8 +115,7 @@
                 const response = await fetch('/api/workflow/process', {
                     method: 'POST',
                     headers: {
-                        'Content-Type': 'application/json',
-                        'Authorization': `Bearer ${authToken}`
+                        'Content-Type': 'application/json'
                     },
                     body: JSON.stringify({
                         issue_description: issueDescription
@@ -256,44 +139,6 @@
                 showAlert('danger', 'Error: ' + error.message);
             }
         });
-
-        async function checkAuth() {
-            try {
-                const response = await fetch('/api/auth/me', {
-                    headers: {'Authorization': `Bearer ${authToken}`}
-                });
-
-                if (response.ok) {
-                    currentUser = await response.json();
-                    document.getElementById('loginSection').classList.add('hidden');
-                    document.getElementById('registerSection').classList.add('hidden');
-                    document.getElementById('requestSection').classList.remove('hidden');
-                    document.getElementById('userInfo').textContent = `👤 ${currentUser.full_name || currentUser.username}`;
-                } else {
-                    logout();
-                }
-            } catch (error) {
-                logout();
-            }
-        }
-
-        function logout() {
-            localStorage.removeItem('authToken');
-            authToken = null;
-            currentUser = null;
-            document.getElementById('loginSection').classList.remove('hidden');
-            document.getElementById('requestSection').classList.add('hidden');
-        }
-
-        function showRegister() {
-            document.getElementById('loginSection').classList.add('hidden');
-            document.getElementById('registerSection').classList.remove('hidden');
-        }
-
-        function showLogin() {
-            document.getElementById('registerSection').classList.add('hidden');
-            document.getElementById('loginSection').classList.remove('hidden');
-        }
 
         function fillExample(element) {
             const text = element.textContent.substring(2).trim();
