@@ -88,7 +88,7 @@ class AgentLog(Base):
     confidence_score = Column(Float)
     
     # Additional context
-    metadata = Column(Text)
+    meta_data = Column(Text)
     error_message = Column(Text)
     
     # Timestamp

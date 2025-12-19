@@ -141,7 +141,7 @@ class AgentLogCreate(BaseModel):
     status: str
     processing_time_ms: Optional[float]
     confidence_score: Optional[float]
-    metadata: Optional[str]
+    meta_data: Optional[str]
     error_message: Optional[str]
 
 
